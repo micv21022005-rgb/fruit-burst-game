@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="cuerpo-juego">
+
+    <header class="barra-navegacion">
+        <button class="header-btn" onclick="window.location.reload();">🏠 Inicio</button>
+        <div class="header-derecha">
+            <button class="header-btn" onclick="alert('Abriendo Personalización de Fruta...');">🎨 Personalizar Fruta</button>
+            <button class="header-btn" onclick="alert('Abriendo Ventana de Inicio de Sesión...');">👤 Iniciar Sesión</button>
+            <button class="header-btn" onclick="alert('Abriendo Tienda de Objetos...');">🛒 Tienda</button>
+        </div>
+    </header>
+
     <div class="contenedor-principal" id="pantalla-inicio">
         <h1>GUERRA DE FRUTAS</h1>
         <p class="subtitulo">La lucha por la supremacía tropical ha comenzado. Elige tu facción y entra en la arena.</p>
@@ -23,7 +33,6 @@
             <button class="faccion-btn faccion-citricos" onclick="seleccionarFaccion('Citricos')">
                 ☀️ Guardianes Cítricos 🍋
             </button>
-            
             <button class="faccion-btn faccion-tropicales" onclick="seleccionarFaccion('Tropicales')">
                 🌺 Defensores Tropicales 🍍
             </button>
