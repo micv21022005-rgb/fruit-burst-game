@@ -3,36 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guerra de Frutas - ¡La Batalla Cítrica!</title>
+    <title>Guerra de Frutas - Paraíso en Batalla</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="contenedor-principal" id="pantalla-inicio">
-        <h1>⚔️ GUERRA DE FRUTAS 💥</h1>
-        <p class="subtitulo">Elige tu bando y ¡destruye al enemigo!</p>
+        <img src="fruta-con-lanza.png" alt="Fruta guerrera con lanza" class="imagen-logo">
+        <h1>GUERRA DE FRUTAS</h1>
+        <p class="subtitulo">¡Defiende tu isla paradisíaca! ¿De qué lado lucharás?</p>
 
         <button id="boton-jugar" onclick="iniciarJuego()">
-            Lanzar Ataque 🏹
+            ¡A la Carga Tropical! 🌴
         </button>
 
-        <div class="facciones">
-            <p>El conflicto espera: Cítricos 🍊🍋 vs. Tropicales 🍍🥥</p>
-        </div>
+        <p class="pie-pagina">La batalla por el paraíso ha comenzado.</p>
     </div>
 
     <div class="contenedor-principal" id="seleccion-facciones" style="display: none;">
-        <h2>¡ELIGE TU FACCIÓN!</h2>
+        <h2>ELIGE TU ALIANZA</h2>
         
         <div class="opciones-faccion">
-            <button class="faccion-btn citricos" onclick="seleccionarFaccion('Citricos')">
-                🍊 CÍTRICOS VENGADORES 🍋
+            <button class="faccion-btn faccion-citricos" onclick="seleccionarFaccion('Citricos')">
+                ☀️ Guardianes Cítricos 🍋
             </button>
-            <button class="faccion-btn tropicales" onclick="seleccionarFaccion('Tropicales')">
-                🍍 LEGIÓN TROPICAL 🥥
+            <button class="faccion-btn faccion-tropicales" onclick="seleccionarFaccion('Tropicales')">
+                🌺 Defensores Tropicales 🍍
             </button>
         </div>
 
-        <p class="mensaje-espera">Una vez elegido, la batalla es inevitable.</p>
+        <p class="mensaje-espera">Tu elección sella el destino de las islas...</p>
     </div>
 
     <script src="script.js"></script>
