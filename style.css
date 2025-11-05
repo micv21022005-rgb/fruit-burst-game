@@ -26,7 +26,7 @@ body.faccion-tropicales {
     --color-terciario: #ffc107; /* Mango */
 }
 
-/* 🍎 ESTILOS CLAVE: IMAGEN DE FONDO GRANDE */
+/*  ESTILOS CLAVE: IMAGEN DE FONDO GRANDE */
 body {
     font-family: 'Quicksand', sans-serif;
     display: flex;
@@ -39,9 +39,9 @@ body {
 
     /* --- PROPIEDADES DE FONDO --- */
     background-image: url('fruta-con-lanza.png'); /* Asegúrate de que esta sea tu imagen */
-    background-size: 150%; /* ⬅️ Hace la imagen MÁS GRANDE */
+    background-size: 100%; /*  Hace la imagen MÁS GRANDE */
     background-repeat: no-repeat;
-    background-position: center 30%; /* ⬅️ Centra la fruta, subiendo un poco para que se vea bien */
+    background-position: center 30%; /*  Centra la fruta, subiendo un poco para que se vea bien */
     background-color: #f7f3e8; /* Fondo pastel base */
 
     /* Capa de sombra para el texto */
@@ -75,7 +75,7 @@ body {
     box-shadow: 0 0 20px var(--color-principal); /* Sombra basada en color primario */
 }
 
-/* ➡️ TÍTULOS CON ESTILO NEÓN/VIVO */
+/* TÍTULOS CON ESTILO NEÓN/VIVO */
 h1 {
     font-family: 'Pacifico', cursive;
     color: var(--color-principal);
@@ -102,7 +102,7 @@ h2 {
 .subtitulo {
     color: white; /* Texto blanco para resaltar sobre el fondo */
     font-size: 1.1em;
-    margin-bottom: 50px; /* ⬅️ Aumentamos separación */
+    margin-bottom: 50px; /*  Aumentamos separación */
     font-weight: 700;
     text-shadow: 1px 1px 5px var(--color-sombra-neon); /* Sombra para legibilidad */
 }
@@ -144,7 +144,7 @@ h2 {
 .opciones-faccion {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* ⬅️ Separación de botones aumentada */
+    gap: 20px; /*  Separación de botones aumentada */
     margin-bottom: 20px;
     width: 100%;
 }
