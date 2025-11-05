@@ -100,4 +100,59 @@ h1 {
     .contenedor-principal {
         padding: 30px 20px;
     }
+    /* --- ESTILOS DE LA PANTALLA DE SELECCIÓN --- */
+
+.opciones-faccion {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.faccion-btn {
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.faccion-btn.citricos {
+    background-color: #ff9900; /* Naranja cítrico */
+    color: var(--color-fondo); /* Texto oscuro */
+    box-shadow: 0 5px #cc7a00;
+}
+
+.faccion-btn.tropicales {
+    background-color: #3cb371; /* Verde tropical */
+    color: var(--color-texto); /* Texto blanco */
+    box-shadow: 0 5px #2d8a59;
+}
+
+.faccion-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+}
+
+.faccion-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.mensaje-espera {
+    margin-top: 30px;
+    color: #888;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+/* Ajuste para que los contenedores-principal se muestren bien */
+/* Asegura que el contenedor tome el ancho completo en el body */
+.contenedor-principal {
+    display: block; /* Para permitir que JavaScript lo oculte y lo muestre */
+}
 }
