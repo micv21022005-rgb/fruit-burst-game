@@ -1,5 +1,8 @@
-/* Importar una fuente de impacto para un mejor look de batalla */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap');
+/* Importar nuevas fuentes: 
+   - 'Metal Mania': Fuerte, con carácter de batalla para el H1.
+   - 'Jost': Moderna y legible para el resto del texto.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Metal+Mania&display=swap');
 
 :root {
     /* Paleta de colores de batalla/guerra de frutas */
@@ -12,7 +15,8 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    /* Fuente principal más moderna y legible */
+    font-family: 'Jost', sans-serif;
     background-color: var(--color-fondo);
     display: flex;
     justify-content: center;
@@ -39,21 +43,23 @@ body {
 }
 
 h1 {
-    font-family: 'Bebas Neue', sans-serif;
+    /* FUENTE DE TÍTULO MÁS AGRESIVA/ÉPICA */
+    font-family: 'Metal Mania', cursive;
     color: var(--color-secundario);
-    font-size: 5em;
+    font-size: 5.5em; /* Ligeramente más grande */
     margin-bottom: 0.1em;
     /* Efecto de texto desgarrado/épico */
     text-shadow: 
         0 0 10px var(--color-principal),
-        0 0 20px var(--color-principal),
+        0 0 25px var(--color-principal),
         4px 4px 0 var(--color-principal);
+    line-height: 1;
 }
 
 .subtitulo {
     color: #ccc;
     font-size: 1.3em;
-    margin-top: -15px;
+    margin-top: -10px; /* Ajuste por el cambio de h1 */
     margin-bottom: 40px;
     letter-spacing: 1px;
 }
@@ -70,7 +76,7 @@ h1 {
     transition: all 0.2s ease;
     box-shadow: 0 8px var(--color-boton-sombra);
     text-transform: uppercase;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Jost', sans-serif; /* Usamos Jost aquí también */
     letter-spacing: 2px;
 }
 
@@ -92,15 +98,7 @@ h1 {
     color: #aaa;
 }
 
-/* Responsividad para móviles */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 3.5em;
-    }
-    .contenedor-principal {
-        padding: 30px 20px;
-    }
-    /* --- ESTILOS DE LA PANTALLA DE SELECCIÓN --- */
+/* --- ESTILOS DE LA PANTALLA DE SELECCIÓN --- */
 
 .opciones-faccion {
     display: flex;
@@ -150,9 +148,16 @@ h1 {
     font-size: 0.9em;
 }
 
-/* Ajuste para que los contenedores-principal se muestren bien */
-/* Asegura que el contenedor tome el ancho completo en el body */
 .contenedor-principal {
-    display: block; /* Para permitir que JavaScript lo oculte y lo muestre */
+    display: block; 
 }
+
+/* Responsividad para móviles */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 3.5em;
+    }
+    .contenedor-principal {
+        padding: 30px 20px;
+    }
 }
