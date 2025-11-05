@@ -1,24 +1,33 @@
-// Función que se ejecuta al hacer clic en "Lanzar Ataque"
+// Archivo: script.js
+
+// Función que se llama cuando el usuario hace clic en el botón "¡A la Carga Tropical!"
 function iniciarJuego() {
-    // 1. Obtener los elementos por su ID
     const pantallaInicio = document.getElementById('pantalla-inicio');
     const seleccionFacciones = document.getElementById('seleccion-facciones');
 
-    // 2. Ocultar la pantalla de inicio (el botón)
     pantallaInicio.style.display = 'none';
-
-    // 3. Mostrar la pantalla de selección de facciones
     seleccionFacciones.style.display = 'block'; 
-    // Usamos 'block' o 'flex' (si quieres centrarlo con flexbox)
+
+    // Aquí reseteamos cualquier clase de facción que pudiera haberse aplicado antes.
+    document.body.classList.remove('faccion-citricos', 'faccion-tropicales');
 }
 
-// Función que se ejecuta al elegir una facción
+// Función que se llama cuando el usuario elige una facción
 function seleccionarFaccion(faccion) {
-    // Aquí es donde iría la lógica real para iniciar el juego con la facción elegida.
-    
-    // Por ahora, mostraremos un mensaje simple:
+    // Primero, limpiamos cualquier clase de facción anterior del body
+    document.body.classList.remove('faccion-citricos', 'faccion-tropicales');
+
+    // Añadimos la clase de la facción seleccionada al body
+    if (faccion === 'Citricos') {
+        document.body.classList.add('faccion-citricos');
+    } else if (faccion === 'Tropicales') {
+        document.body.classList.add('faccion-tropicales');
+    }
+
+    // Aquí es donde iría la lógica para cargar el juego real después de la elección.
+    // Por ahora, solo muestra una alerta para confirmar la elección y muestra la nueva paleta.
     alert(`¡Has elegido la facción de los ${faccion}! 
-    Preparando tu unidad de ataque... ¡El juego comenzará!`);
+    Tu isla se tiñe con sus colores... ¡La batalla por el paraíso comienza!`);
     
-    // Si tuvieras un juego real, aquí cargarías el nivel 1.
+    document.body.classList.remove('faccion-citricos', 'faccion-tropicales');
 }
