@@ -5,17 +5,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Metal+Mania&display=swap');
 
 :root {
-    /* Paleta de colores de batalla/guerra de frutas */
-    --color-fondo: #1c1c1c; /* Gris oscuro / Casi negro */
-    --color-principal: #ff4500; /* Naranja rojizo, explosivo */
-    --color-secundario: #ffd700; /* Dorado, de armadura */
+    /* Paleta de colores de batalla OSCURA */
+    --color-fondo: #0a0a0a; /* Negro para un ambiente épico */
+    --color-principal: #ff0000; /* Rojo Sangre/Fuego */
+    --color-secundario: #cccccc; /* Gris metalizado */
     --color-texto: #ffffff; /* Blanco */
-    --color-boton-fondo: #ff4500;
-    --color-boton-sombra: #cc3700;
+    --color-boton-fondo: #ff4500; /* Naranja Intenso */
+    --color-boton-sombra: #a32900; /* Sombra Roja Oscura */
 }
 
 body {
-    /* Fuente principal más moderna y legible */
     font-family: 'Jost', sans-serif;
     background-color: var(--color-fondo);
     display: flex;
@@ -26,40 +25,39 @@ body {
     text-align: center;
     /* Fondo con efecto de "arena" */
     background-image: 
-        radial-gradient(circle at 15% 80%, rgba(255, 69, 0, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 85% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 15% 80%, rgba(255, 0, 0, 0.15) 0%, transparent 50%), /* Efecto de brillo rojo */
+        radial-gradient(circle at 85% 20%, rgba(204, 204, 204, 0.1) 0%, transparent 50%); /* Efecto metálico gris */
     background-size: cover;
     color: var(--color-texto);
 }
 
 .contenedor-principal {
-    background-color: rgba(0, 0, 0, 0.85); /* Fondo semitransparente oscuro */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo casi opaco para resaltar el contenido */
     padding: 50px 70px;
     border-radius: 15px;
-    box-shadow: 0 0 40px rgba(255, 69, 0, 0.4); /* Sombra intensa de batalla */
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); /* Sombra intensa de color rojo */
     max-width: 500px;
     width: 90%;
-    border: 3px solid var(--color-principal); /* Borde de armadura */
+    border: 3px solid var(--color-secundario); /* Borde metálico */
 }
 
 h1 {
-    /* FUENTE DE TÍTULO MÁS AGRESIVA/ÉPICA */
     font-family: 'Metal Mania', cursive;
-    color: var(--color-secundario);
-    font-size: 5.5em; /* Ligeramente más grande */
+    color: var(--color-principal); /* Rojo Intenso */
+    font-size: 5.5em;
     margin-bottom: 0.1em;
     /* Efecto de texto desgarrado/épico */
     text-shadow: 
-        0 0 10px var(--color-principal),
-        0 0 25px var(--color-principal),
-        4px 4px 0 var(--color-principal);
+        0 0 10px var(--color-secundario),
+        0 0 20px var(--color-secundario),
+        4px 4px 0 #999; /* Sombra gris más oscura */
     line-height: 1;
 }
 
 .subtitulo {
-    color: #ccc;
+    color: var(--color-secundario); /* Gris metalizado para el subtítulo */
     font-size: 1.3em;
-    margin-top: -10px; /* Ajuste por el cambio de h1 */
+    margin-top: -10px;
     margin-bottom: 40px;
     letter-spacing: 1px;
 }
@@ -76,14 +74,14 @@ h1 {
     transition: all 0.2s ease;
     box-shadow: 0 8px var(--color-boton-sombra);
     text-transform: uppercase;
-    font-family: 'Jost', sans-serif; /* Usamos Jost aquí también */
+    font-family: 'Jost', sans-serif;
     letter-spacing: 2px;
 }
 
 #boton-jugar:hover {
-    background-color: var(--color-secundario);
+    background-color: var(--color-principal); /* Rojo en hover */
     color: var(--color-fondo);
-    box-shadow: 0 8px #d4af37; /* Sombra dorada */
+    box-shadow: 0 8px #990000; /* Sombra de hover más intensa */
     transform: translateY(-2px);
 }
 
@@ -95,7 +93,7 @@ h1 {
 .facciones {
     margin-top: 30px;
     font-size: 0.9em;
-    color: #aaa;
+    color: var(--color-secundario);
 }
 
 /* --- ESTILOS DE LA PANTALLA DE SELECCIÓN --- */
@@ -119,20 +117,20 @@ h1 {
 }
 
 .faccion-btn.citricos {
-    background-color: #ff9900; /* Naranja cítrico */
-    color: var(--color-fondo); /* Texto oscuro */
-    box-shadow: 0 5px #cc7a00;
+    background-color: #ff3300; /* Rojo/Naranja Agresivo */
+    color: var(--color-texto);
+    box-shadow: 0 5px #b32400;
 }
 
 .faccion-btn.tropicales {
-    background-color: #3cb371; /* Verde tropical */
-    color: var(--color-texto); /* Texto blanco */
-    box-shadow: 0 5px #2d8a59;
+    background-color: #008000; /* Verde militar */
+    color: var(--color-texto);
+    box-shadow: 0 5px #005000;
 }
 
 .faccion-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 7px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 7px var(--color-principal); /* Efecto de brillo de ataque */
     opacity: 0.9;
 }
 
@@ -143,7 +141,7 @@ h1 {
 
 .mensaje-espera {
     margin-top: 30px;
-    color: #888;
+    color: var(--color-secundario);
     font-style: italic;
     font-size: 0.9em;
 }
