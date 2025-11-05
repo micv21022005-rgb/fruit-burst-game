@@ -1,99 +1,128 @@
-/* Importar nuevas fuentes: 
-   - 'Metal Mania': Fuerte, con carácter de batalla para el H1.
-   - 'Jost': Moderna y legible para el resto del texto.
+/* Importar fuentes: 
+   - 'Pacifico': Para un toque tropical y amigable en el H1.
+   - 'Quicksand': Limpia y moderna para el resto del texto.
 */
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Metal+Mania&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap');
 
 :root {
-    /* Paleta de colores de batalla OSCURA */
-    --color-fondo: #0a0a0a; /* Negro para un ambiente épico */
-    --color-principal: #ff0000; /* Rojo Sangre/Fuego */
-    --color-secundario: #cccccc; /* Gris metalizado */
-    --color-texto: #ffffff; /* Blanco */
-    --color-boton-fondo: #ff4500; /* Naranja Intenso */
-    --color-boton-sombra: #a32900; /* Sombra Roja Oscura */
+    /* Paleta de Colores Pasteles Tropicales - PREDETERMINADA */
+    --color-fondo-claro: #fcf8e8; /* Amarillo pastel muy suave */
+    --color-fondo-medio: #ffe0b2; /* Melocotón pastel */
+    --color-principal-acento: #ff9800; /* Naranja melocotón brillante */
+    --color-secundario-acento: #8bc34a; /* Verde lima pastel */
+    --color-texto-oscuro: #3e2723; /* Marrón oscuro para contraste */
+    --color-boton: #ffab40; /* Naranja pastel */
+    --color-boton-sombra: #ef6c00; /* Naranja más oscuro */
+    --color-borde: #ffcc80; /* Melocotón claro */
 }
 
+/* --- ESTILOS ESPECÍFICOS PARA FACCIÓN CÍTRICOS --- */
+body.faccion-citricos {
+    --color-fondo-claro: #fffde7; /* Amarillo limón muy claro */
+    --color-fondo-medio: #fff9c4; /* Amarillo limón pastel */
+    --color-principal-acento: #ffeb3b; /* Amarillo brillante */
+    --color-secundario-acento: #cddc39; /* Verde lima */
+    --color-boton: #ffd600; /* Amarillo vivo */
+    --color-boton-sombra: #ffc107;
+    --color-borde: #ffee58;
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA FACCIÓN TROPICALES --- */
+body.faccion-tropicales {
+    --color-fondo-claro: #e8f5e9; /* Verde menta muy claro */
+    --color-fondo-medio: #c8e6c9; /* Verde hoja pastel */
+    --color-principal-acento: #4caf50; /* Verde esmeralda */
+    --color-secundario-acento: #a7ffeb; /* Turquesa claro */
+    --color-boton: #69f0ab; /* Verde agua */
+    --color-boton-sombra: #00bfa5;
+    --color-borde: #a5d6a7;
+}
+
+
 body {
-    font-family: 'Jost', sans-serif;
-    background-color: var(--color-fondo);
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--color-fondo-claro);
+    background-image: linear-gradient(135deg, var(--color-fondo-claro) 0%, var(--color-fondo-medio) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
     text-align: center;
-    /* Fondo con efecto de "arena" */
-    background-image: 
-        radial-gradient(circle at 15% 80%, rgba(255, 0, 0, 0.15) 0%, transparent 50%), /* Efecto de brillo rojo */
-        radial-gradient(circle at 85% 20%, rgba(204, 204, 204, 0.1) 0%, transparent 50%); /* Efecto metálico gris */
-    background-size: cover;
-    color: var(--color-texto);
+    color: var(--color-texto-oscuro);
+    transition: background-color 0.8s ease, background-image 0.8s ease; /* Transición suave de colores */
 }
 
 .contenedor-principal {
-    background-color: rgba(0, 0, 0, 0.9); /* Fondo casi opaco para resaltar el contenido */
-    padding: 50px 70px;
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); /* Sombra intensa de color rojo */
+    background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco semitransparente */
+    padding: 40px 60px;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     width: 90%;
-    border: 3px solid var(--color-secundario); /* Borde metálico */
+    border: 4px solid var(--color-borde);
+    transition: border-color 0.8s ease;
+}
+
+.imagen-logo {
+    width: 150px; /* Tamaño de la imagen */
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 50%; /* Si quieres que sea redonda */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
-    font-family: 'Metal Mania', cursive;
-    color: var(--color-principal); /* Rojo Intenso */
-    font-size: 5.5em;
+    font-family: 'Pacifico', cursive;
+    color: var(--color-principal-acento);
+    font-size: 3.8em;
     margin-bottom: 0.1em;
-    /* Efecto de texto desgarrado/épico */
-    text-shadow: 
-        0 0 10px var(--color-secundario),
-        0 0 20px var(--color-secundario),
-        4px 4px 0 #999; /* Sombra gris más oscura */
-    line-height: 1;
+    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.8), 4px 4px 0 var(--color-secundario-acento);
+    line-height: 1.1;
+    transition: color 0.8s ease, text-shadow 0.8s ease;
 }
 
-.subtitulo {
-    color: var(--color-secundario); /* Gris metalizado para el subtítulo */
-    font-size: 1.3em;
-    margin-top: -10px;
-    margin-bottom: 40px;
-    letter-spacing: 1px;
+h2 { /* Estilo para el título de la selección de facciones */
+    font-family: 'Pacifico', cursive;
+    color: var(--color-principal-acento);
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8), 2px 2px 0 var(--color-secundario-acento);
+    transition: color 0.8s ease, text-shadow 0.8s ease;
+}
+
+.subtitulo, .pie-pagina, .mensaje-espera {
+    color: var(--color-texto-oscuro);
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-bottom: 25px;
+    transition: color 0.8s ease;
 }
 
 #boton-jugar {
-    background-color: var(--color-boton-fondo);
-    color: var(--color-texto);
+    background-color: var(--color-boton);
+    color: white;
     border: none;
-    padding: 18px 40px;
-    font-size: 1.6em;
+    padding: 18px 35px;
+    font-size: 1.5em;
     font-weight: 700;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease, background-color 0.8s ease, box-shadow 0.8s ease;
     box-shadow: 0 8px var(--color-boton-sombra);
     text-transform: uppercase;
-    font-family: 'Jost', sans-serif;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 #boton-jugar:hover {
-    background-color: var(--color-principal); /* Rojo en hover */
-    color: var(--color-fondo);
-    box-shadow: 0 8px #990000; /* Sombra de hover más intensa */
-    transform: translateY(-2px);
+    background-color: var(--color-principal-acento);
+    box-shadow: 0 8px var(--color-secundario-acento);
+    transform: translateY(-3px);
 }
 
 #boton-jugar:active {
-    box-shadow: 0 2px var(--color-boton-sombra);
-    transform: translateY(6px);
-}
-
-.facciones {
-    margin-top: 30px;
-    font-size: 0.9em;
-    color: var(--color-secundario);
+    box-shadow: 0 4px var(--color-boton-sombra);
+    transform: translateY(2px);
 }
 
 /* --- ESTILOS DE LA PANTALLA DE SELECCIÓN --- */
@@ -110,41 +139,35 @@ h1 {
     font-size: 1.2em;
     font-weight: bold;
     border: 3px solid transparent;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    color: white; /* Color de texto blanco para los botones */
+    box-shadow: 0 5px rgba(0,0,0,0.2);
 }
 
-.faccion-btn.citricos {
-    background-color: #ff3300; /* Rojo/Naranja Agresivo */
-    color: var(--color-texto);
-    box-shadow: 0 5px #b32400;
+.faccion-btn.faccion-citricos {
+    background-color: #ffca28; /* Amarillo brillante para cítricos */
+    border-color: #ffb300;
 }
 
-.faccion-btn.tropicales {
-    background-color: #008000; /* Verde militar */
-    color: var(--color-texto);
-    box-shadow: 0 5px #005000;
+.faccion-btn.faccion-tropicales {
+    background-color: #66bb6a; /* Verde suave para tropicales */
+    border-color: #43a047;
 }
 
 .faccion-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 7px var(--color-principal); /* Efecto de brillo de ataque */
-    opacity: 0.9;
+    transform: translateY(-3px);
+    box-shadow: 0 8px rgba(0, 0, 0, 0.25);
+    opacity: 0.95;
 }
 
 .faccion-btn:active {
-    transform: translateY(3px);
-    box-shadow: 0 2px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px);
+    box-shadow: 0 3px rgba(0, 0, 0, 0.2);
 }
 
-.mensaje-espera {
-    margin-top: 30px;
-    color: var(--color-secundario);
-    font-style: italic;
-    font-size: 0.9em;
-}
 
 .contenedor-principal {
     display: block; 
@@ -153,9 +176,19 @@ h1 {
 /* Responsividad para móviles */
 @media (max-width: 600px) {
     h1 {
-        font-size: 3.5em;
+        font-size: 2.8em;
+    }
+    h2 {
+        font-size: 2em;
     }
     .contenedor-principal {
         padding: 30px 20px;
+    }
+    .imagen-logo {
+        width: 100px;
+    }
+    #boton-jugar {
+        font-size: 1.2em;
+        padding: 15px 25px;
     }
 }
