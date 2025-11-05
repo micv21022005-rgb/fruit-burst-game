@@ -7,17 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="contenedor-principal">
+    <div class="contenedor-principal" id="pantalla-inicio">
         <h1>⚔️ GUERRA DE FRUTAS 💥</h1>
         <p class="subtitulo">Elige tu bando y ¡destruye al enemigo!</p>
 
-        <button id="boton-jugar" onclick="alert('¡Que comience la batalla! El juego carga...')">
+        <button id="boton-jugar" onclick="iniciarJuego()">
             Lanzar Ataque 🏹
         </button>
 
         <div class="facciones">
-            <p>Únete a: **Los Cítricos Vengadores** (🍊🍋) o **La Legión Tropical** (🍍🥥).</p>
+            <p>El conflicto espera: Cítricos 🍊🍋 vs. Tropicales 🍍🥥</p>
         </div>
     </div>
+
+    <div class="contenedor-principal" id="seleccion-facciones" style="display: none;">
+        <h2>¡ELIGE TU FRACCIÓN!</h2>
+        
+        <div class="opciones-faccion">
+            <button class="faccion-btn citricos" onclick="seleccionarFaccion('Citricos')">
+                🍊 CÍTRICOS VENGADORES 🍋
+            </button>
+            <button class="faccion-btn tropicales" onclick="seleccionarFaccion('Tropicales')">
+                🍍 LEGIÓN TROPICAL 🥥
+            </button>
+        </div>
+
+        <p class="mensaje-espera">Una vez elegido, la batalla es inevitable.</p>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
