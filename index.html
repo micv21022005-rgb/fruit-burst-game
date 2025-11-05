@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guerra de Frutas - Paraíso en Batalla</title>
+    <title>Guerra de Frutas - Estilo Cítrico</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="cuerpo-juego">
@@ -11,7 +11,7 @@
         <h1>GUERRA DE FRUTAS</h1>
         <p class="subtitulo">La lucha por la supremacía tropical ha comenzado. Elige tu facción y entra en la arena.</p>
 
-        <button id="boton-jugar" onclick="iniciarJuego()">
+        <button id="boton-jugar" class="boton-inicio" onclick="iniciarJuego()">
             ¡A la Carga Tropical! 🌴
         </button>
     </div>
@@ -23,12 +23,17 @@
             <button class="faccion-btn faccion-citricos" onclick="seleccionarFaccion('Citricos')">
                 ☀️ Guardianes Cítricos 🍋
             </button>
+            
             <button class="faccion-btn faccion-tropicales" onclick="seleccionarFaccion('Tropicales')">
                 🌺 Defensores Tropicales 🍍
             </button>
         </div>
 
         <p class="mensaje-espera">Tu elección sella el destino de las islas...</p>
+        
+        <button id="boton-continuar" class="boton-continuar" onclick="continuarJuego()">
+            ¡A la Carga Tropical! 🌴
+        </button>
     </div>
 
     <script src="script.js"></script>
