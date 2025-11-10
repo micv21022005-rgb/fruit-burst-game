@@ -4,9 +4,11 @@
 function iniciarJuego() {
     const pantallaInicio = document.getElementById('pantalla-inicio');
     const seleccionFacciones = document.getElementById('seleccion-facciones');
+    const mainHeader = document.getElementById('main-header'); // Obtener el header
 
     pantallaInicio.style.display = 'none';
     seleccionFacciones.style.display = 'flex'; 
+    mainHeader.style.display = 'flex'; // ⬅️ Mostrar el header después de iniciar
 }
 
 // Función para manejar la selección de facción y cambiar el estilo
@@ -15,12 +17,11 @@ function seleccionarFaccion(faccion) {
     const botonTropicales = document.querySelector('.faccion-tropicales');
     const botonContinuar = document.getElementById('boton-continuar');
 
-    // 1. Limpiar cualquier selección previa
     document.body.classList.remove('faccion-citricos', 'faccion-tropicales');
     botonCitricos.classList.remove('seleccionado');
     botonTropicales.classList.remove('seleccionado');
     
-    // 2. Aplicar la clase de estilo al body y al botón seleccionado
+    // Aplicar la clase de estilo al body
     if (faccion === 'Citricos') {
         document.body.classList.add('faccion-citricos');
         botonCitricos.classList.add('seleccionado');
@@ -33,7 +34,7 @@ function seleccionarFaccion(faccion) {
         botonContinuar.innerHTML = '¡Luchar por el Trópico! 🍍';
     }
     
-    // 3. Mostrar el botón de continuar
+    // Mostrar el botón de continuar
     botonContinuar.style.display = 'block'; 
 }
 

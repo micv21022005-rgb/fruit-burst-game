@@ -4,20 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guerra de Frutas - ¡La Arena!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Banger&family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="game_style.css"> 
-    </head>
+</head>
 <body>
     <div id="arena">
-        <div id="jugador" class="fruta-personaje"></div>
         
-        <div id="enemigo" class="fruta-oponente"></div>
+        <div id="ui-juego">
+            <div id="vida-p1" class="barra-vida-container">
+                <span class="nombre-jugador">JUGADOR 1 (WASD)</span>
+                <div class="barra-vida-exterior">
+                    <div id="barra-p1" class="barra-vida-interior"></div>
+                </div>
+                <span id="p1-vida-texto">100 HP</span>
+            </div>
 
-        <div id="barra-vida-jugador" class="barra-vida">Vida: 100</div>
-        <div id="barra-vida-enemigo" class="barra-vida">Vida: 100</div>
+            <div id="vida-p2" class="barra-vida-container">
+                <span class="nombre-jugador">JUGADOR 2 (Flechas)</span>
+                <div class="barra-vida-exterior">
+                    <div id="barra-p2" class="barra-vida-interior"></div>
+                </div>
+                <span id="p2-vida-texto">100 HP</span>
+            </div>
+        </div>
+
+        <div id="jugador1" class="fruta-personaje p1">🍋</div>
+        <div id="jugador2" class="fruta-personaje p2">🍍</div>
         
         <div id="mensaje-juego"></div>
     </div>
 
     <script src="game_script.js"></script> 
-    </body>
+</body>
 </html>

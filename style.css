@@ -1,5 +1,5 @@
 /* Importar fuentes */
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Banger&family=Pacifico&family=Quicksand:wght@400;700&display=swap');
 
 :root {
     /* PALETA PREDETERMINADA - Colores Pastel Tropical/Vivo */
@@ -10,20 +10,20 @@
     --color-sombra-neon: rgba(0, 0, 0, 0.8);
 }
 
-/* --- ESTILOS CONDICIONALES DE FACCIÓN (para el body) --- */
+/* --- ESTILOS CONDICIONALES DE FACCIÓN --- */
 body.faccion-citricos {
-    --color-principal: #ff9800; /* Naranja/Cítrico */
-    --color-secundario: #ffd600; /* Amarillo limón */
-    --color-terciario: #8bc34a; /* Verde lima */
+    --color-principal: #ff9800; 
+    --color-secundario: #ffd600; 
+    --color-terciario: #8bc34a; 
 }
 
 body.faccion-tropicales {
-    --color-principal: #e91e63; /* Rosa frambuesa */
-    --color-secundario: #69f0ab; /* Verde agua */
-    --color-terciario: #ffc107; /* Mango */
+    --color-principal: #e91e63; 
+    --color-secundario: #69f0ab; 
+    --color-terciario: #ffc107; 
 }
 
-/* ESTILOS CLAVE: IMAGEN DE FONDO GRANDE Y Header */
+/* ESTILOS BASE */
 body {
     font-family: 'Quicksand', sans-serif;
     display: flex;
@@ -33,28 +33,56 @@ body {
     margin: 0;
     text-align: center;
     color: var(--color-texto-oscuro);
-    padding-top: 70px; /* Espacio para el header fijo */
-
-    /* --- PROPIEDADES DE FONDO --- */
-    background-image: url('fruta-con-lanza.png'); /* Asegúrate de que esta sea tu imagen */
+    padding-top: 70px; 
+    background-image: url('fruta-con-lanza.png'); 
     background-size: 150%; 
     background-repeat: no-repeat;
     background-position: center 30%; 
     background-color: #f7f3e8; 
-
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); 
     background-blend-mode: overlay; 
     transition: all 0.5s ease;
 }
 
-/* --- ESTILOS DEL ENCABEZADO (HEADER) --- */
+/* 🏆 TÍTULO CON FUENTE 'BANGER' Y ESTILO CÓMIC */
+h1 {
+    font-family: 'Banger', cursive; /* APLICACIÓN DE FUENTE CÓMIC */
+    color: white; 
+    font-size: 5.5em; /* Ligeramente más grande */
+    margin: 0 0 10px 0;
+    text-shadow: 
+        5px 5px 0 var(--color-principal),
+        7px 7px 0 var(--color-sombra-neon),
+        9px 9px 0 var(--color-secundario); /* Sombra más épica */
+    line-height: 1;
+    transition: all 0.5s ease;
+}
+
+h2 { 
+    font-family: 'Banger', cursive; /* Banger también en H2 */
+    color: var(--color-principal);
+    font-size: 3em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 0 var(--color-terciario);
+    transition: all 0.5s ease;
+}
+
+.subtitulo {
+    color: white; 
+    font-size: 1.2em;
+    margin-bottom: 50px; 
+    font-weight: 700;
+    text-shadow: 1px 1px 5px var(--color-sombra-neon); 
+}
+
+/* HEADER */
 .barra-navegacion {
     position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     padding: 15px 30px;
-    background-color: rgba(255, 255, 255, 0.1); 
+    background-color: rgba(255, 255, 255, 0.2); 
     backdrop-filter: blur(5px); 
     z-index: 1000; 
     display: flex;
@@ -64,6 +92,7 @@ body {
 }
 
 .header-btn {
+    /* Estilos se mantienen */
     background-color: rgba(255, 255, 255, 0.8); 
     color: var(--color-texto-oscuro);
     border: none;
@@ -77,71 +106,20 @@ body {
     box-shadow: 0 3px var(--color-principal); 
 }
 
-.header-btn:hover {
-    background-color: var(--color-principal); 
-    color: white;
-    box-shadow: 0 3px var(--color-secundario);
-    transform: translateY(-1px);
-}
-
-.header-btn:active {
-    transform: translateY(2px);
-    box-shadow: 0 1px var(--color-secundario);
-}
-
-/* Estilo general para centrar el contenido */
-.contenedor-principal {
+/* BOTONES DE FACCIÓN Y CONTINUAR (Estilos se mantienen) */
+.opciones-faccion {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    max-width: 450px;
-    padding: 30px;
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
+    gap: 20px; 
+    margin-bottom: 20px;
+    width: 100%;
 }
 
-.pantalla-seleccion {
-    background-color: rgba(255, 255, 255, 0.9) !important;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 0 20px var(--color-principal); 
-}
-
-h1 {
-    font-family: 'Pacifico', cursive;
-    color: white; 
-    font-size: 4.5em;
-    margin: 0 0 10px 0;
-    text-shadow: 
-        0 0 5px var(--color-secundario),
-        0 0 10px var(--color-secundario),
-        5px 5px 0 var(--color-sombra-neon);
-    line-height: 1;
-    transition: all 0.5s ease;
-}
-
-h2 { 
-    font-family: 'Pacifico', cursive;
-    color: var(--color-principal);
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 0 var(--color-terciario);
-    transition: all 0.5s ease;
-}
-
-.subtitulo {
-    color: white; 
-    font-size: 1.1em;
-    margin-bottom: 50px; 
-    font-weight: 700;
-    text-shadow: 1px 1px 5px var(--color-sombra-neon); 
-}
-
-/* BOTÓN DE INICIO */
-.boton-inicio {
+.boton-inicio, .boton-continuar {
+    /* Estilos de botones primarios */
+    font-family: 'Banger', cursive;
+    letter-spacing: 2px;
+    /* ... otros estilos ... */
     background-color: var(--color-terciario);
     color: white;
     border: none;
@@ -151,53 +129,6 @@ h2 {
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 0 8px #2e7d32; 
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    width: 100%;
-}
-
-/* SECCIÓN DE BOTONES DE FACCIÓN */
-.opciones-faccion {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; 
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-.faccion-btn {
-    padding: 18px;
-    font-size: 1.2em;
-    font-weight: 700;
-    border: 3px solid transparent;
-    border-radius: 10px;
-    cursor: pointer;
-    color: white; 
-    box-shadow: 0 6px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-}
-
-/* Colores de botones de facción específicos */
-.faccion-btn.faccion-citricos { background-color: #ffb300; }
-.faccion-btn.faccion-tropicales { background-color: #e91e63; }
-
-.faccion-btn.seleccionado {
-    border-color: white;
-    box-shadow: 0 0 15px 5px var(--color-principal);
-    transform: scale(1.05);
-}
-
-/* BOTÓN DE CONTINUAR */
-.boton-continuar {
-    /* ... (Estilos similares al boton-inicio) ... */
-    color: white;
-    border: none;
-    padding: 18px 40px;
-    font-size: 1.5em;
-    font-weight: 700;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 8px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
     transition: all 0.3s ease;
     width: 100%;

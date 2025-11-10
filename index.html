@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guerra de Frutas - Estilo Cítrico</title>
+    <title>Guerra de Frutas - Arena de Batalla</title>
+    <link href="https://fonts.googleapis.com/css2?family=Banger&family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="cuerpo-juego">
 
-    <header class="barra-navegacion">
+    <header class="barra-navegacion" id="main-header" style="display: none;">
         <button class="header-btn" onclick="window.location.reload();">🏠 Inicio</button>
         <div class="header-derecha">
             <button class="header-btn" onclick="alert('Abriendo Personalización de Fruta...');">🎨 Personalizar Fruta</button>
@@ -41,8 +43,7 @@
         <p class="mensaje-espera">Tu elección sella el destino de las islas...</p>
         
         <button id="boton-continuar" class="boton-continuar" onclick="continuarJuego()" style="display: none;">
-            ¡A la Carga Tropical! 🌴
-        </button>
+            </button>
     </div>
 
     <script src="script.js"></script>
