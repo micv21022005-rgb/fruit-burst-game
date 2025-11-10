@@ -1,7 +1,4 @@
-/* Importar fuentes: 
-   - 'Pacifico': Para los títulos (H1, H2) con estilo caricaturesco.
-   - 'Quicksand': Limpia y moderna para el cuerpo del texto.
-*/
+/* Importar fuentes */
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap');
 
 :root {
@@ -10,7 +7,7 @@
     --color-secundario: #e91e63; /* Rosa/Frambuesa */
     --color-terciario: #4caf50; /* Verde hoja */
     --color-texto-oscuro: #3e2723;
-    --color-sombra-neon: rgba(0, 0, 0, 0.8); /* Sombra oscura para contraste */
+    --color-sombra-neon: rgba(0, 0, 0, 0.8);
 }
 
 /* --- ESTILOS CONDICIONALES DE FACCIÓN (para el body) --- */
@@ -26,7 +23,7 @@ body.faccion-tropicales {
     --color-terciario: #ffc107; /* Mango */
 }
 
-/*  ESTILOS CLAVE: IMAGEN DE FONDO GRANDE */
+/* ESTILOS CLAVE: IMAGEN DE FONDO GRANDE Y Header */
 body {
     font-family: 'Quicksand', sans-serif;
     display: flex;
@@ -36,19 +33,60 @@ body {
     margin: 0;
     text-align: center;
     color: var(--color-texto-oscuro);
+    padding-top: 70px; /* Espacio para el header fijo */
 
     /* --- PROPIEDADES DE FONDO --- */
     background-image: url('fruta-con-lanza.png'); /* Asegúrate de que esta sea tu imagen */
-    background-size: 100%; /*  Hace la imagen MÁS GRANDE */
+    background-size: 150%; 
     background-repeat: no-repeat;
-    background-position: center 30%; /*  Centra la fruta, subiendo un poco para que se vea bien */
-    background-color: #f7f3e8; /* Fondo pastel base */
+    background-position: center 30%; 
+    background-color: #f7f3e8; 
 
-    /* Capa de sombra para el texto */
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); 
     background-blend-mode: overlay; 
-    
     transition: all 0.5s ease;
+}
+
+/* --- ESTILOS DEL ENCABEZADO (HEADER) --- */
+.barra-navegacion {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 30px;
+    background-color: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(5px); 
+    z-index: 1000; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-btn {
+    background-color: rgba(255, 255, 255, 0.8); 
+    color: var(--color-texto-oscuro);
+    border: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    font-size: 0.9em;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px var(--color-principal); 
+}
+
+.header-btn:hover {
+    background-color: var(--color-principal); 
+    color: white;
+    box-shadow: 0 3px var(--color-secundario);
+    transform: translateY(-1px);
+}
+
+.header-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px var(--color-secundario);
 }
 
 /* Estilo general para centrar el contenido */
@@ -60,28 +98,23 @@ body {
     width: 90%;
     max-width: 450px;
     padding: 30px;
-    
-    /* Hacemos el contenedor transparente en la pantalla de inicio */
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
 }
 
-/* Ajustes para la pantalla de selección (necesita fondo para los botones) */
 .pantalla-seleccion {
     background-color: rgba(255, 255, 255, 0.9) !important;
     border-radius: 20px;
     padding: 40px;
-    box-shadow: 0 0 20px var(--color-principal); /* Sombra basada en color primario */
+    box-shadow: 0 0 20px var(--color-principal); 
 }
 
-/* TÍTULOS CON ESTILO NEÓN/VIVO */
 h1 {
     font-family: 'Pacifico', cursive;
-    color: var(--color-principal);
+    color: white; 
     font-size: 4.5em;
     margin: 0 0 10px 0;
-    /* Efecto de luz neón/contorno fuerte */
     text-shadow: 
         0 0 5px var(--color-secundario),
         0 0 10px var(--color-secundario),
@@ -100,21 +133,14 @@ h2 {
 }
 
 .subtitulo {
-    color: white; /* Texto blanco para resaltar sobre el fondo */
+    color: white; 
     font-size: 1.1em;
-    margin-bottom: 50px; /*  Aumentamos separación */
+    margin-bottom: 50px; 
     font-weight: 700;
-    text-shadow: 1px 1px 5px var(--color-sombra-neon); /* Sombra para legibilidad */
+    text-shadow: 1px 1px 5px var(--color-sombra-neon); 
 }
 
-.mensaje-espera {
-    color: var(--color-texto-oscuro);
-    font-style: italic;
-    font-size: 0.9em;
-    margin: 20px 0;
-}
-
-/* BOTÓN DE INICIO (A la Carga Tropical) */
+/* BOTÓN DE INICIO */
 .boton-inicio {
     background-color: var(--color-terciario);
     color: white;
@@ -124,27 +150,17 @@ h2 {
     font-weight: 700;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 8px #2e7d32; /* Sombra verde oscura */
+    box-shadow: 0 8px #2e7d32; 
     text-transform: uppercase;
     transition: all 0.3s ease;
-    width: 100%; /* Ancho completo */
+    width: 100%;
 }
-
-.boton-inicio:hover {
-    box-shadow: 0 8px var(--color-principal); 
-    transform: translateY(-2px);
-}
-.boton-inicio:active {
-    box-shadow: 0 4px #2e7d32;
-    transform: translateY(4px);
-}
-
 
 /* SECCIÓN DE BOTONES DE FACCIÓN */
 .opciones-faccion {
     display: flex;
     flex-direction: column;
-    gap: 20px; /*  Separación de botones aumentada */
+    gap: 20px; 
     margin-bottom: 20px;
     width: 100%;
 }
@@ -162,28 +178,18 @@ h2 {
 }
 
 /* Colores de botones de facción específicos */
-.faccion-btn.faccion-citricos {
-    background-color: #ffb300; /* Naranja/Melocotón */
-}
-.faccion-btn.faccion-tropicales {
-    background-color: #e91e63; /* Rosa/Frambuesa */
-}
+.faccion-btn.faccion-citricos { background-color: #ffb300; }
+.faccion-btn.faccion-tropicales { background-color: #e91e63; }
 
-/* Estilo al seleccionar un botón */
 .faccion-btn.seleccionado {
     border-color: white;
-    box-shadow: 0 0 15px 5px var(--color-principal); /* Brillo al seleccionar */
+    box-shadow: 0 0 15px 5px var(--color-principal);
     transform: scale(1.05);
-}
-
-.faccion-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px rgba(0, 0, 0, 0.35);
 }
 
 /* BOTÓN DE CONTINUAR */
 .boton-continuar {
-    display: none; /* Oculto inicialmente */
+    /* ... (Estilos similares al boton-inicio) ... */
     color: white;
     border: none;
     padding: 18px 40px;
@@ -196,65 +202,4 @@ h2 {
     transition: all 0.3s ease;
     width: 100%;
     margin-top: 20px;
-}
-
-/* Responsividad */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 3em;
-    }
-    body {
-        background-size: 200%;
-    }
-    .contenedor-principal {
-        padding: 20px;
-    }
-}
-
-/* --- ESTILOS DEL ENCABEZADO (HEADER) --- */
-
-.barra-navegacion {
-    position: fixed; /* Mantiene el header en la parte superior al desplazarse */
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 30px;
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo muy transparente */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque detrás del header (moderno) */
-    z-index: 1000; /* Asegura que esté por encima del resto del contenido */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.header-btn {
-    background-color: rgba(255, 255, 255, 0.8); /* Botones semi-blancos para destacar */
-    color: var(--color-texto-oscuro);
-    border: none;
-    padding: 8px 15px;
-    margin-left: 10px;
-    font-size: 0.9em;
-    font-weight: 700;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 3px var(--color-principal); /* Sombra basada en la facción actual */
-}
-
-.header-btn:hover {
-    background-color: var(--color-principal); /* Cambia el color al principal de la facción */
-    color: white;
-    box-shadow: 0 3px var(--color-secundario);
-    transform: translateY(-1px);
-}
-
-.header-btn:active {
-    transform: translateY(2px);
-    box-shadow: 0 1px var(--color-secundario);
-}
-
-/* Ajuste de contenido para que no se oculte detrás del header */
-body {
-    padding-top: 70px; /* Espacio para que el contenido no quede debajo del header fijo */
 }

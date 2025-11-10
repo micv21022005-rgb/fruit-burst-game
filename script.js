@@ -5,11 +5,8 @@ function iniciarJuego() {
     const pantallaInicio = document.getElementById('pantalla-inicio');
     const seleccionFacciones = document.getElementById('seleccion-facciones');
 
-    // Ocultar la pantalla de inicio
     pantallaInicio.style.display = 'none';
-
-    // Mostrar la pantalla de selección
-    seleccionFacciones.style.display = 'flex'; // Usamos 'flex' para centrar mejor
+    seleccionFacciones.style.display = 'flex'; 
 }
 
 // Función para manejar la selección de facción y cambiar el estilo
@@ -27,23 +24,20 @@ function seleccionarFaccion(faccion) {
     if (faccion === 'Citricos') {
         document.body.classList.add('faccion-citricos');
         botonCitricos.classList.add('seleccionado');
-        // El botón de continuar toma el color y texto de la facción Cítricos
         botonContinuar.style.backgroundColor = '#ff9800'; 
         botonContinuar.innerHTML = '¡Defender Cítricos! 🍋';
     } else if (faccion === 'Tropicales') {
         document.body.classList.add('faccion-tropicales');
         botonTropicales.classList.add('seleccionado');
-        // El botón de continuar toma el color y texto de la facción Tropicales
         botonContinuar.style.backgroundColor = '#e91e63';
         botonContinuar.innerHTML = '¡Luchar por el Trópico! 🍍';
     }
     
-    // 3. Mostrar el botón de continuar una vez que se ha elegido una facción
+    // 3. Mostrar el botón de continuar
     botonContinuar.style.display = 'block'; 
 }
 
-// Función que se llama al presionar el botón de continuar después de la elección
+// Función que se llama al presionar el botón de continuar: REDIRIGE AL JUEGO
 function continuarJuego() {
-    alert('¡El juego comenzará con tu facción elegida! (Este es el siguiente paso)');
-    // Aquí iría el código para cargar el juego real.
+    window.location.href = 'game.html'; 
 }
