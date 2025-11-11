@@ -100,4 +100,99 @@ h1 {
     align-items: center;
     justify-content: center;
     width: 90%;
-    max-width: 450
+    max-width: 450px;
+    padding: 30px;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 🟢 CAJA VERDE/OSCURA PARA LEGIBILIDAD */
+.caja-seleccion {
+    background-color: rgba(69, 90, 100, 0.9); /* Verde/Gris oscuro con transparencia */
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+}
+
+.caja-seleccion h2 { 
+    font-family: 'Banger', cursive; 
+    color: white; /* Título principal en blanco */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 var(--color-secundario);
+}
+
+.caja-seleccion .mensaje-espera {
+    color: #CFD8DC; /* Texto descriptivo en gris claro */
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.subtitulo {
+    color: white; 
+    font-size: 1.2em;
+    margin-bottom: 30px; 
+    font-weight: 700;
+    text-shadow: 1px 1px 5px var(--color-texto-oscuro); 
+}
+
+/* BOTONES DE INICIO/CONTINUAR */
+.boton-inicio, .boton-continuar {
+    font-family: 'Banger', cursive;
+    background-color: var(--color-terciario); 
+    color: white;
+    border: none;
+    padding: 15px 35px; 
+    font-size: 1.4em; 
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px #388E3C; 
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    width: 90%; 
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+/* ESTILOS DE BOTONES DE FACCIÓN */
+.opciones-faccion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.faccion-btn {
+    font-family: 'Quicksand', sans-serif;
+    padding: 15px; 
+    font-size: 1.1em;
+    font-weight: 700;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    /* TEXTO OSCURO CORREGIDO PARA ALTA LEGIBILIDAD */
+    color: var(--color-texto-oscuro); 
+    box-shadow: 0 6px var(--color-btn-sombra); 
+    transition: all 0.3s ease;
+}
+
+/* Colores de botones de facción específicos */
+.faccion-btn.faccion-citricos { 
+    background-color: var(--color-btn-faccion); 
+    box-shadow: 0 6px var(--color-btn-sombra);
+}
+.faccion-btn.faccion-tropicales { 
+    background-color: var(--color-btn-faccion); 
+    box-shadow: 0 6px var(--color-btn-sombra);
+}
+
+.faccion-btn.seleccionado {
+    border-color: white;
+    box-shadow: 0 0 15px 5px var(--color-principal);
+    transform: scale(1.05);
+}
