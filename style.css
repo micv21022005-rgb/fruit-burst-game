@@ -2,25 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Banger&family=Pacifico&family=Quicksand:wght@400;700&display=swap');
 
 :root {
-    /* PALETA PREDETERMINADA - Colores Pastel Tropical/Vivo */
-    --color-principal: #ffcc00; /* Amarillo vivo */
-    --color-secundario: #e91e63; /* Rosa/Frambuesa */
-    --color-terciario: #4caf50; /* Verde hoja */
+    /* PALETA PRINCIPAL */
+    --color-header: #4CAF50; /* Verde sólido para el header */
+    --color-texto-header: #FFF;
+    --color-principal: #FFCC00; /* Logo Amarillo */
+    --color-secundario: #E74C3C; /* Logo Rojo */
+    --color-terciario: #4CAF50; /* Botón de inicio Verde */
     --color-texto-oscuro: #3e2723;
-    --color-sombra-neon: rgba(0, 0, 0, 0.8);
 }
 
-/* --- ESTILOS CONDICIONALES DE FACCIÓN --- */
+/* --- TEMAS DINÁMICOS (Para la pantalla de selección) --- */
 body.faccion-citricos {
-    --color-principal: #ff9800; 
-    --color-secundario: #ffd600; 
-    --color-terciario: #8bc34a; 
+    --color-btn-faccion: #FF9800; /* Naranja para Cítricos */
+    --color-btn-sombra: #E65100;
 }
 
 body.faccion-tropicales {
-    --color-principal: #e91e63; 
-    --color-secundario: #69f0ab; 
-    --color-terciario: #ffc107; 
+    --color-btn-faccion: #E91E63; /* Magenta para Tropicales */
+    --color-btn-sombra: #C2185B;
 }
 
 /* ESTILOS BASE */
@@ -34,37 +33,72 @@ body {
     text-align: center;
     color: var(--color-texto-oscuro);
     padding-top: 70px; 
+    
+    /* Fondo para la primera imagen (Oscuro/Granada) */
     background-image: url('fruta-con-lanza.png'); 
     background-size: 150%; 
     background-repeat: no-repeat;
     background-position: center 30%; 
-    background-color: #f7f3e8; 
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); 
+    background-color: #333; /* Fondo base oscuro */
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6); /* Overlay más oscuro */
     background-blend-mode: overlay; 
     transition: all 0.5s ease;
 }
 
-/* 🏆 TÍTULO CON FUENTE 'BANGER' Y ESTILO CÓMIC */
+/* --- HEADER SÓLIDO Y PROFESIONAL --- */
+.barra-navegacion {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 30px;
+    background-color: var(--color-header); /* Verde Sólido */
+    z-index: 1000; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    font-family: 'Quicksand', sans-serif;
+}
+
+.header-btn {
+    background-color: transparent;
+    color: var(--color-texto-header);
+    border: none;
+    padding: 10px 15px;
+    margin-left: 15px;
+    font-size: 0.9em;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1); 
+    transform: translateY(-1px);
+}
+
+/* 🏆 ESTILO DEL LOGO (H1) */
 h1 {
-    font-family: 'Banger', cursive; /* APLICACIÓN DE FUENTE CÓMIC */
-    color: white; 
-    font-size: 5.5em; /* Ligeramente más grande */
+    font-family: 'Banger', cursive;
+    color: var(--color-principal); 
+    font-size: 5.5em;
     margin: 0 0 10px 0;
+    line-height: 0.9;
     text-shadow: 
-        5px 5px 0 var(--color-principal),
-        7px 7px 0 var(--color-sombra-neon),
-        9px 9px 0 var(--color-secundario); /* Sombra más épica */
-    line-height: 1;
-    transition: all 0.5s ease;
+        -4px -4px 0 var(--color-secundario), /* Contorno Rojo (Look Cómic) */
+        4px 4px 0 var(--color-texto-oscuro); /* Sombra Oscura */
 }
 
 h2 { 
-    font-family: 'Banger', cursive; /* Banger también en H2 */
-    color: var(--color-principal);
+    font-family: 'Banger', cursive; 
+    color: #fff;
     font-size: 3em;
     margin-bottom: 30px;
-    text-shadow: 2px 2px 0 var(--color-terciario);
-    transition: all 0.5s ease;
+    text-shadow: 2px 2px 0 var(--color-texto-oscuro);
 }
 
 .subtitulo {
@@ -72,55 +106,13 @@ h2 {
     font-size: 1.2em;
     margin-bottom: 50px; 
     font-weight: 700;
-    text-shadow: 1px 1px 5px var(--color-sombra-neon); 
+    text-shadow: 1px 1px 5px var(--color-texto-oscuro); 
 }
 
-/* HEADER */
-.barra-navegacion {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 30px;
-    background-color: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(5px); 
-    z-index: 1000; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.header-btn {
-    /* Estilos se mantienen */
-    background-color: rgba(255, 255, 255, 0.8); 
-    color: var(--color-texto-oscuro);
-    border: none;
-    padding: 8px 15px;
-    margin-left: 10px;
-    font-size: 0.9em;
-    font-weight: 700;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 3px var(--color-principal); 
-}
-
-/* BOTONES DE FACCIÓN Y CONTINUAR (Estilos se mantienen) */
-.opciones-faccion {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; 
-    margin-bottom: 20px;
-    width: 100%;
-}
-
+/* BOTÓN DE INICIO Y CONTINUAR (Verde sólido) */
 .boton-inicio, .boton-continuar {
-    /* Estilos de botones primarios */
     font-family: 'Banger', cursive;
-    letter-spacing: 2px;
-    /* ... otros estilos ... */
-    background-color: var(--color-terciario);
+    background-color: var(--color-terciario); /* Verde primario */
     color: white;
     border: none;
     padding: 18px 40px;
@@ -128,9 +120,39 @@ h2 {
     font-weight: 700;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 8px #2e7d32; 
+    box-shadow: 0 6px #388E3C; /* Sombra más oscura */
     text-transform: uppercase;
     transition: all 0.3s ease;
     width: 100%;
     margin-top: 20px;
+}
+
+/* ESTILOS DE BOTONES DE FACCIÓN (Segunda Imagen) */
+.faccion-btn {
+    font-family: 'Quicksand', sans-serif;
+    padding: 18px;
+    font-size: 1.2em;
+    font-weight: 700;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white; 
+    box-shadow: 0 6px var(--color-btn-sombra); /* Sombra se basa en el color de facción */
+    transition: all 0.3s ease;
+}
+
+/* Colores de botones de facción específicos */
+.faccion-btn.faccion-citricos { 
+    background-color: var(--color-btn-faccion); /* Naranja */
+    box-shadow: 0 6px var(--color-btn-sombra);
+}
+.faccion-btn.faccion-tropicales { 
+    background-color: var(--color-btn-faccion); /* Magenta */
+    box-shadow: 0 6px var(--color-btn-sombra);
+}
+
+.faccion-btn.seleccionado {
+    border-color: white;
+    box-shadow: 0 0 15px 5px var(--color-principal);
+    transform: scale(1.05);
 }

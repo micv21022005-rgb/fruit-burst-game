@@ -4,11 +4,10 @@
 function iniciarJuego() {
     const pantallaInicio = document.getElementById('pantalla-inicio');
     const seleccionFacciones = document.getElementById('seleccion-facciones');
-    const mainHeader = document.getElementById('main-header'); // Obtener el header
-
+    
+    // Aquí el header ya está visible por defecto, solo se realiza la transición de contenido
     pantallaInicio.style.display = 'none';
     seleccionFacciones.style.display = 'flex'; 
-    mainHeader.style.display = 'flex'; // ⬅️ Mostrar el header después de iniciar
 }
 
 // Función para manejar la selección de facción y cambiar el estilo
@@ -25,12 +24,12 @@ function seleccionarFaccion(faccion) {
     if (faccion === 'Citricos') {
         document.body.classList.add('faccion-citricos');
         botonCitricos.classList.add('seleccionado');
-        botonContinuar.style.backgroundColor = '#ff9800'; 
+        botonContinuar.style.backgroundColor = '#4CAF50'; // Color de botón de inicio
         botonContinuar.innerHTML = '¡Defender Cítricos! 🍋';
     } else if (faccion === 'Tropicales') {
         document.body.classList.add('faccion-tropicales');
         botonTropicales.classList.add('seleccionado');
-        botonContinuar.style.backgroundColor = '#e91e63';
+        botonContinuar.style.backgroundColor = '#4CAF50'; // Color de botón de inicio
         botonContinuar.innerHTML = '¡Luchar por el Trópico! 🍍';
     }
     

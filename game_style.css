@@ -1,5 +1,8 @@
+/* Importar fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Banger&family=Pacifico&family=Quicksand:wght@400;700&display=swap');
+
 body {
-    background-color: #f7f3e8; /* Pastel claro */
+    background-color: #f7f3e8; 
     color: #3e2723;
     margin: 0;
     display: flex;
@@ -12,23 +15,36 @@ body {
 #arena {
     width: 900px;
     height: 600px;
-    border: 10px solid #8bc34a; /* Borde verde claro tropical */
-    border-radius: 15px;
+    border: 10px solid #8bc34a; /* Borde de arena verde tropical */
+    border-radius: 20px;
     position: relative;
-    background-color: #c8e6c9; /* Fondo de arena verde pastel */
+    background-color: #d4e157; /* Fondo de arena verde claro */
+    background-image: linear-gradient(to top, #aed581 0%, #d4e157 100%); /* Degradado sutil */
     overflow: hidden; 
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.arena-title {
+    font-family: 'Banger', cursive;
+    color: #3e2723;
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    text-align: center;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 0 #fff, 4px 4px 0 #ff9800;
 }
 
 /* UI DE VIDA */
 #ui-juego {
     position: absolute;
-    top: 10px;
+    top: 35px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
     box-sizing: border-box;
+    z-index: 5;
 }
 
 .nombre-jugador {
@@ -38,14 +54,13 @@ body {
     text-shadow: 1px 1px 0 #fff;
 }
 
-.barra-vida-container {
-    width: 40%;
-    text-align: center;
-}
+.p1-text { color: #ff9800; } /* Naranja */
+.p2-text { color: #e91e63; } /* Magenta */
+
 
 .barra-vida-exterior {
     height: 20px;
-    background-color: #ecf0f1; /* Gris claro */
+    background-color: #ecf0f1; 
     border: 2px solid #3e2723;
     border-radius: 5px;
     overflow: hidden;
@@ -54,12 +69,12 @@ body {
 
 .barra-vida-interior {
     height: 100%;
-    width: 100%; /* El JS lo ajusta */
+    width: 100%;
     transition: width 0.3s ease;
 }
 
-#barra-p1 { background-color: #ff9800; } /* Naranja Cítrico */
-#barra-p2 { background-color: #e91e63; } /* Rosa Tropical */
+.p1-color { background-color: #ff9800; } /* Naranja Cítrico */
+.p2-color { background-color: #e91e63; } /* Rosa Tropical */
 #p1-vida-texto, #p2-vida-texto { font-weight: bold; }
 
 
@@ -72,19 +87,19 @@ body {
     text-align: center;
     line-height: 60px;
     border-radius: 50%;
-    transition: left 0.05s, bottom 0.05s; 
+    transition: left 0.05s, top 0.05s; 
     border: 3px solid #3e2723;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-.p1 { background-color: #ffd600; } /* Fondo amarillo */
-.p2 { background-color: #69f0ab; } /* Fondo verde agua */
+.p1 { background-color: #ffd600; } 
+.p2 { background-color: #69f0ab; } 
 
 /* Proyectiles */
 .proyectil {
-    width: 15px;
-    height: 15px;
-    background-color: #ffcc80; /* Melocotón */
+    width: 20px; /* Más grandes */
+    height: 20px;
+    background-color: #ffcc80; 
     border-radius: 50%;
     position: absolute;
     border: 2px solid #3e2723;
@@ -98,7 +113,7 @@ body {
     transform: translate(-50%, -50%);
     font-family: 'Banger', cursive;
     font-size: 5em;
-    color: #f39c12;
+    color: #ff9800;
     z-index: 10;
     text-shadow: 4px 4px 0 #3e2723;
 }
