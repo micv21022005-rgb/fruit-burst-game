@@ -13,12 +13,12 @@
 
 /* --- TEMAS DINÁMICOS (Para la pantalla de selección) --- */
 body.faccion-citricos {
-    --color-btn-faccion: #FF9800; /* Naranja para Cítricos */
+    --color-btn-faccion: #FF9800; 
     --color-btn-sombra: #E65100;
 }
 
 body.faccion-tropicales {
-    --color-btn-faccion: #E91E63; /* Magenta para Tropicales */
+    --color-btn-faccion: #E91E63; 
     --color-btn-sombra: #C2185B;
 }
 
@@ -32,15 +32,17 @@ body {
     margin: 0;
     text-align: center;
     color: var(--color-texto-oscuro);
-    padding-top: 70px; 
     
+    /* 🛠️ CORRECCIÓN: Aumento de espacio para que el Header no tape el contenido */
+    padding-top: 85px; 
+
     /* Fondo para la primera imagen (Oscuro/Granada) */
     background-image: url('fruta-con-lanza.png'); 
     background-size: 150%; 
     background-repeat: no-repeat;
     background-position: center 30%; 
-    background-color: #333; /* Fondo base oscuro */
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6); /* Overlay más oscuro */
+    background-color: #333; 
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6); 
     background-blend-mode: overlay; 
     transition: all 0.5s ease;
 }
@@ -52,10 +54,11 @@ body {
     left: 0;
     width: 100%;
     padding: 10px 30px;
-    background-color: var(--color-header); /* Verde Sólido */
+    background-color: var(--color-header); 
     z-index: 1000; 
     display: flex;
-    justify-content: space-between;
+    /* 🛠️ CORRECCIÓN: Espaciado uniforme para que los botones quepan */
+    justify-content: space-between; 
     align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     font-family: 'Quicksand', sans-serif;
@@ -65,15 +68,16 @@ body {
     background-color: transparent;
     color: var(--color-texto-header);
     border: none;
-    padding: 10px 15px;
-    margin-left: 15px;
-    font-size: 0.9em;
+    /* 🛠️ CORRECCIÓN: Padding más compacto para Header */
+    padding: 8px 12px; 
+    margin-left: 10px;
+    font-size: 0.85em; /* Ligeramente más pequeño */
     font-weight: 700;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .header-btn:hover {
@@ -85,18 +89,19 @@ body {
 h1 {
     font-family: 'Banger', cursive;
     color: var(--color-principal); 
-    font-size: 5.5em;
+    /* 🛠️ CORRECCIÓN: Reducción del font-size para evitar superposición */
+    font-size: 4.8em; 
     margin: 0 0 10px 0;
     line-height: 0.9;
     text-shadow: 
-        -4px -4px 0 var(--color-secundario), /* Contorno Rojo (Look Cómic) */
-        4px 4px 0 var(--color-texto-oscuro); /* Sombra Oscura */
+        -4px -4px 0 var(--color-secundario), 
+        4px 4px 0 var(--color-texto-oscuro); 
 }
 
 h2 { 
     font-family: 'Banger', cursive; 
     color: #fff;
-    font-size: 3em;
+    font-size: 2.5em;
     margin-bottom: 30px;
     text-shadow: 2px 2px 0 var(--color-texto-oscuro);
 }
@@ -104,55 +109,41 @@ h2 {
 .subtitulo {
     color: white; 
     font-size: 1.2em;
-    margin-bottom: 50px; 
+    /* 🛠️ CORRECCIÓN: Más margen inferior para separarse del botón principal */
+    margin-bottom: 30px; 
     font-weight: 700;
     text-shadow: 1px 1px 5px var(--color-texto-oscuro); 
 }
 
-/* BOTÓN DE INICIO Y CONTINUAR (Verde sólido) */
+/* BOTÓN DE INICIO Y CONTINUAR */
 .boton-inicio, .boton-continuar {
     font-family: 'Banger', cursive;
-    background-color: var(--color-terciario); /* Verde primario */
+    background-color: var(--color-terciario); 
     color: white;
     border: none;
-    padding: 18px 40px;
-    font-size: 1.5em;
+    padding: 15px 35px; /* Ligeramente más pequeño */
+    font-size: 1.4em; 
     font-weight: 700;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 6px #388E3C; /* Sombra más oscura */
+    box-shadow: 0 6px #388E3C; 
     text-transform: uppercase;
     transition: all 0.3s ease;
-    width: 100%;
+    width: 90%; /* Ajuste de ancho */
+    max-width: 400px;
     margin-top: 20px;
 }
 
 /* ESTILOS DE BOTONES DE FACCIÓN (Segunda Imagen) */
 .faccion-btn {
     font-family: 'Quicksand', sans-serif;
-    padding: 18px;
-    font-size: 1.2em;
+    padding: 15px; /* Ajuste de padding */
+    font-size: 1.1em;
     font-weight: 700;
     border: 3px solid transparent;
     border-radius: 10px;
     cursor: pointer;
     color: white; 
-    box-shadow: 0 6px var(--color-btn-sombra); /* Sombra se basa en el color de facción */
+    box-shadow: 0 6px var(--color-btn-sombra); 
     transition: all 0.3s ease;
-}
-
-/* Colores de botones de facción específicos */
-.faccion-btn.faccion-citricos { 
-    background-color: var(--color-btn-faccion); /* Naranja */
-    box-shadow: 0 6px var(--color-btn-sombra);
-}
-.faccion-btn.faccion-tropicales { 
-    background-color: var(--color-btn-faccion); /* Magenta */
-    box-shadow: 0 6px var(--color-btn-sombra);
-}
-
-.faccion-btn.seleccionado {
-    border-color: white;
-    box-shadow: 0 0 15px 5px var(--color-principal);
-    transform: scale(1.05);
 }

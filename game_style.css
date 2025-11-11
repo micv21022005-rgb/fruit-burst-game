@@ -13,13 +13,14 @@ body {
 }
 
 #arena {
-    width: 900px;
-    height: 600px;
-    border: 10px solid #8bc34a; /* Borde de arena verde tropical */
+    /* 🛠️ AJUSTE: Arena ligeramente más grande para mejor espacio */
+    width: 950px; 
+    height: 650px; 
+    border: 10px solid #8bc34a; 
     border-radius: 20px;
     position: relative;
-    background-color: #d4e157; /* Fondo de arena verde claro */
-    background-image: linear-gradient(to top, #aed581 0%, #d4e157 100%); /* Degradado sutil */
+    background-color: #d4e157; 
+    background-image: linear-gradient(to top, #aed581 0%, #d4e157 100%); 
     overflow: hidden; 
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
@@ -28,17 +29,18 @@ body {
     font-family: 'Banger', cursive;
     color: #3e2723;
     position: absolute;
-    top: -10px;
+    top: 5px; /* Más bajo para no pegarse al borde */
     width: 100%;
     text-align: center;
-    font-size: 2.5em;
+    /* 🛠️ AJUSTE: Reducción del font-size para evitar superposición */
+    font-size: 2em; 
     text-shadow: 2px 2px 0 #fff, 4px 4px 0 #ff9800;
 }
 
 /* UI DE VIDA */
 #ui-juego {
     position: absolute;
-    top: 35px;
+    top: 45px; /* Más espacio debajo del título de la arena */
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -49,14 +51,20 @@ body {
 
 .nombre-jugador {
     font-family: 'Banger', cursive;
-    font-size: 1.5em;
+    /* 🛠️ AJUSTE: Fuente más pequeña para que quepa en el contenedor */
+    font-size: 1.3em; 
     color: #3e2723;
     text-shadow: 1px 1px 0 #fff;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
 }
 
-.p1-text { color: #ff9800; } /* Naranja */
-.p2-text { color: #e91e63; } /* Magenta */
+.p1-text { color: #ff9800; } 
+.p2-text { color: #e91e63; } 
 
+.barra-vida-container {
+    width: 35%; /* Ligeramente más estrecho para asegurar el espacio entre barras */
+    text-align: center;
+}
 
 .barra-vida-exterior {
     height: 20px;
@@ -73,12 +81,12 @@ body {
     transition: width 0.3s ease;
 }
 
-.p1-color { background-color: #ff9800; } /* Naranja Cítrico */
-.p2-color { background-color: #e91e63; } /* Rosa Tropical */
+.p1-color { background-color: #ff9800; } 
+.p2-color { background-color: #e91e63; } 
 #p1-vida-texto, #p2-vida-texto { font-weight: bold; }
 
 
-/* Personajes */
+/* Personajes (sin cambios) */
 .fruta-personaje {
     width: 60px;
     height: 60px;
@@ -95,9 +103,9 @@ body {
 .p1 { background-color: #ffd600; } 
 .p2 { background-color: #69f0ab; } 
 
-/* Proyectiles */
+/* Proyectiles (sin cambios) */
 .proyectil {
-    width: 20px; /* Más grandes */
+    width: 20px; 
     height: 20px;
     background-color: #ffcc80; 
     border-radius: 50%;
