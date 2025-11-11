@@ -32,12 +32,10 @@ body {
     margin: 0;
     text-align: center;
     color: var(--color-texto-oscuro);
+    padding-top: 85px; /* Espacio para el header fijo */
     
-    /* 🛠️ CORRECCIÓN: Aumento de espacio para que el Header no tape el contenido */
-    padding-top: 85px; 
-
     /* Fondo para la primera imagen (Oscuro/Granada) */
-    background-image: url('fruta-con-lanza.png'); 
+    background-image: url('fruta-con-lanza.png'); /* Asegúrate de tener esta imagen */
     background-size: 150%; 
     background-repeat: no-repeat;
     background-position: center 30%; 
@@ -57,8 +55,7 @@ body {
     background-color: var(--color-header); 
     z-index: 1000; 
     display: flex;
-    /* 🛠️ CORRECCIÓN: Espaciado uniforme para que los botones quepan */
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     font-family: 'Quicksand', sans-serif;
@@ -68,10 +65,9 @@ body {
     background-color: transparent;
     color: var(--color-texto-header);
     border: none;
-    /* 🛠️ CORRECCIÓN: Padding más compacto para Header */
     padding: 8px 12px; 
     margin-left: 10px;
-    font-size: 0.85em; /* Ligeramente más pequeño */
+    font-size: 0.85em; 
     font-weight: 700;
     border-radius: 5px;
     cursor: pointer;
@@ -85,11 +81,10 @@ body {
     transform: translateY(-1px);
 }
 
-/* 🏆 ESTILO DEL LOGO (H1) */
+/* TÍTULO/LOGO */
 h1 {
     font-family: 'Banger', cursive;
     color: var(--color-principal); 
-    /* 🛠️ CORRECCIÓN: Reducción del font-size para evitar superposición */
     font-size: 4.8em; 
     margin: 0 0 10px 0;
     line-height: 0.9;
@@ -98,30 +93,60 @@ h1 {
         4px 4px 0 var(--color-texto-oscuro); 
 }
 
-h2 { 
+/* ESTILO DEL CONTENEDOR DE SELECCIÓN DE FACCIÓN */
+.contenedor-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 450px;
+    padding: 30px;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 🟢 CAJA VERDE/OSCURA PARA LEGIBILIDAD */
+.caja-seleccion {
+    background-color: rgba(69, 90, 100, 0.9); /* Verde/Gris oscuro con transparencia */
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+}
+
+.caja-seleccion h2 { 
     font-family: 'Banger', cursive; 
-    color: #fff;
+    color: white; /* Título principal en blanco */
     font-size: 2.5em;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 0 var(--color-texto-oscuro);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 var(--color-secundario);
+}
+
+.caja-seleccion .mensaje-espera {
+    color: #CFD8DC; /* Texto descriptivo en gris claro */
+    font-weight: 500;
+    margin-top: 20px;
 }
 
 .subtitulo {
     color: white; 
     font-size: 1.2em;
-    /* 🛠️ CORRECCIÓN: Más margen inferior para separarse del botón principal */
     margin-bottom: 30px; 
     font-weight: 700;
     text-shadow: 1px 1px 5px var(--color-texto-oscuro); 
 }
 
-/* BOTÓN DE INICIO Y CONTINUAR */
+/* BOTONES DE INICIO/CONTINUAR */
 .boton-inicio, .boton-continuar {
     font-family: 'Banger', cursive;
     background-color: var(--color-terciario); 
     color: white;
     border: none;
-    padding: 15px 35px; /* Ligeramente más pequeño */
+    padding: 15px 35px; 
     font-size: 1.4em; 
     font-weight: 700;
     border-radius: 50px;
@@ -129,15 +154,22 @@ h2 {
     box-shadow: 0 6px #388E3C; 
     text-transform: uppercase;
     transition: all 0.3s ease;
-    width: 90%; /* Ajuste de ancho */
+    width: 90%; 
     max-width: 400px;
     margin-top: 20px;
 }
 
-/* ESTILOS DE BOTONES DE FACCIÓN (Segunda Imagen) */
+/* ESTILOS DE BOTONES DE FACCIÓN */
+.opciones-faccion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
 .faccion-btn {
     font-family: 'Quicksand', sans-serif;
-    padding: 15px; /* Ajuste de padding */
+    padding: 15px; 
     font-size: 1.1em;
     font-weight: 700;
     border: 3px solid transparent;
@@ -146,4 +178,14 @@ h2 {
     color: white; 
     box-shadow: 0 6px var(--color-btn-sombra); 
     transition: all 0.3s ease;
+}
+
+/* Colores de botones de facción específicos */
+.faccion-btn.faccion-citricos { 
+    background-color: var(--color-btn-faccion); /* Naranja */
+    box-shadow: 0 6px var(--color-btn-sombra);
+}
+.faccion-btn.faccion-tropicales { 
+    background-color: var(--color-btn-faccion); /* Magenta */
+    box-shadow: 0 6px var(--color-btn-sombra);
 }
