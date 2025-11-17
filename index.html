@@ -12,27 +12,26 @@
 
     <header class="barra-navegacion" id="main-header">
         <div class="header-izquierda">
-            <button class="header-btn principal" onclick="window.location.reload();">INICIO</button>
+            <button class="header-btn principal" onclick="mostrarPantalla('pantalla-inicio')">INICIO</button>
         </div>
         
         <div class="header-derecha">
-            <button class="header-btn" onclick="alert('Abriendo Personalización de Fruta...');">PERSONALIZAR FRUTA</button>
-            <button class="header-btn" onclick="alert('Abriendo Ventana de Inicio de Sesión...');">INICIAR SESIÓN</button>
-            <button class="header-btn" onclick="alert('Abriendo Tienda de Objetos...');">TIENDA</button>
+            <button class="header-btn" onclick="mostrarPantalla('pantalla-personalizar')">PERSONALIZAR FRUTA</button>
+            <button class="header-btn" onclick="mostrarPantalla('pantalla-login')">INICIAR SESIÓN</button>
+            <button class="header-btn" onclick="mostrarPantalla('pantalla-tienda')">TIENDA</button>
         </div>
     </header>
 
-    <div class="contenedor-principal" id="pantalla-inicio">
+    <div class="contenedor-principal pantalla-activa" id="pantalla-inicio">
         <h1>GUERRA DE FRUTAS</h1>
         <p class="subtitulo">La lucha por la supremacía tropical ha comenzado. Elige tu facción y entra en la arena.</p>
 
-        <button id="boton-jugar" class="boton-inicio" onclick="iniciarJuego()">
+        <button id="boton-jugar" class="boton-inicio" onclick="mostrarPantalla('seleccion-facciones')">
             ¡A LA CARGA TROPICAL! 🌴
         </button>
     </div>
 
-    <div class="contenedor-principal" id="seleccion-facciones" style="display: none;">
-        
+    <div class="contenedor-principal pantalla-oculta" id="seleccion-facciones">
         <div class="caja-seleccion">
             <h2>ELIGE TU ALIANZA</h2>
             
@@ -51,6 +50,58 @@
                 </button>
         </div>
     </div>
+    
+    <div class="contenedor-principal pantalla-oculta" id="pantalla-tienda">
+        <div class="caja-seleccion">
+            <h2>🛒 TIENDA DE ARMAS Y SKINS</h2>
+            <p>Aquí puedes comprar mejoras para tus batallas usando Monedas Tropicales.</p>
+            <div class="area-contenido-secundario">
+                <h3>OBJETOS DISPONIBLES</h3>
+                <ul>
+                    <li>Lanza de Plátano Reforzada (1000 Monedas)</li>
+                    <li>Skin de Sandía de Élite (2500 Monedas)</li>
+                    <li>Doble Daño (Temporal)</li>
+                </ul>
+            </div>
+            <button class="boton-inicio volver-btn" onclick="mostrarPantalla('pantalla-inicio')">
+                ◀ VOLVER AL INICIO
+            </button>
+        </div>
+    </div>
+
+    <div class="contenedor-principal pantalla-oculta" id="pantalla-personalizar">
+        <div class="caja-seleccion">
+            <h2>🎨 PERSONALIZA TU FRUTA</h2>
+            <p>Elige tu color, accesorio y efectos de proyectil.</p>
+            <div class="area-contenido-secundario">
+                <p>Elige tu sombrero:</p>
+                <button class="faccion-btn" style="background-color: #9C27B0;">Sombrero Pirata</button>
+                <button class="faccion-btn" style="background-color: #2196F3;">Gafas de Sol</button>
+                <p style="margin-top: 15px;">Tu fruta actual: 🍋</p>
+            </div>
+            <button class="boton-inicio volver-btn" onclick="mostrarPantalla('pantalla-inicio')">
+                ◀ VOLVER AL INICIO
+            </button>
+        </div>
+    </div>
+
+    <div class="contenedor-principal pantalla-oculta" id="pantalla-login">
+        <div class="caja-seleccion">
+            <h2>🔑 INICIAR SESIÓN</h2>
+            <p>Accede a tu cuenta para guardar tu progreso.</p>
+            <div class="area-contenido-secundario">
+                <form onsubmit="event.preventDefault(); alert('Intentando acceder... (Simulado)');">
+                    <input type="text" placeholder="Nombre de Usuario" style="padding: 10px; margin-bottom: 10px; width: 80%;">
+                    <input type="password" placeholder="Contraseña Secreta" style="padding: 10px; margin-bottom: 20px; width: 80%;">
+                    <button class="faccion-btn" type="submit" style="background-color: #03A9F4; color: white; width: 80%;">ACCEDER</button>
+                </form>
+            </div>
+            <button class="boton-inicio volver-btn" onclick="mostrarPantalla('pantalla-inicio')">
+                ◀ VOLVER AL INICIO
+            </button>
+        </div>
+    </div>
+
 
     <script src="script.js"></script>
 </body>
