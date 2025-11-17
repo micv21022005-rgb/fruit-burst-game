@@ -3,7 +3,7 @@
 
 :root {
     /* PALETA PRINCIPAL */
-    --color-header: #4CAF50; /* Verde sólido para el header */
+    --color-header: #4CAF50; 
     --color-texto-header: #FFF;
     --color-principal: #FFCC00; /* Logo Amarillo */
     --color-secundario: #E74C3C; /* Logo Rojo */
@@ -13,12 +13,12 @@
 
 /* --- TEMAS DINÁMICOS (Para la pantalla de selección) --- */
 body.faccion-citricos {
-    --color-btn-faccion: #FF9800; /* Naranja para Cítricos */
+    --color-btn-faccion: #FF9800; 
     --color-btn-sombra: #E65100;
 }
 
 body.faccion-tropicales {
-    --color-btn-faccion: #E91E63; /* Magenta para Tropicales */
+    --color-btn-faccion: #E91E63; 
     --color-btn-sombra: #C2185B;
 }
 
@@ -32,7 +32,7 @@ body {
     margin: 0;
     text-align: center;
     color: var(--color-texto-oscuro);
-    padding-top: 85px; /* Espacio para el header fijo */
+    padding-top: 85px; 
     
     /* Fondo de la Landing Page */
     background-image: url('fruta-con-lanza.png'); 
@@ -81,7 +81,7 @@ body {
     transform: translateY(-1px);
 }
 
-/* TÍTULO/LOGO (Fuente Banger con sombra tipo cómic) */
+/* TÍTULO/LOGO */
 h1 {
     font-family: 'Banger', cursive;
     color: var(--color-principal); 
@@ -93,7 +93,7 @@ h1 {
         4px 4px 0 var(--color-texto-oscuro); 
 }
 
-/* ESTILO DEL CONTENEDOR DE SELECCIÓN DE FACCIÓN */
+/* --- MANEJO DE MÚLTIPLES PANTALLAS --- */
 .contenedor-principal {
     display: flex;
     flex-direction: column;
@@ -102,14 +102,36 @@ h1 {
     width: 90%;
     max-width: 450px;
     padding: 30px;
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    
+    /* Para que todas ocupen el mismo lugar */
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 50vh;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-/* 🟢 CAJA VERDE/OSCURA PARA LEGIBILIDAD */
+/* Estado inicial: Pantallas ocultas */
+.pantalla-oculta {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; 
+}
+
+/* Estado activo: Solo una visible a la vez */
+.pantalla-activa {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* CAJA DE CONTENIDO SECUNDARIO (Verde oscuro para legibilidad) */
 .caja-seleccion {
-    background-color: rgba(69, 90, 100, 0.9); /* Verde/Gris oscuro con transparencia */
+    background-color: rgba(69, 90, 100, 0.9); 
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
@@ -120,17 +142,30 @@ h1 {
 
 .caja-seleccion h2 { 
     font-family: 'Banger', cursive; 
-    color: white; /* Título principal en blanco */
+    color: white; 
     font-size: 2.5em;
     margin-bottom: 20px;
     text-shadow: 2px 2px 0 var(--color-secundario);
 }
 
-.caja-seleccion .mensaje-espera {
-    color: #CFD8DC; /* Texto descriptivo en gris claro */
+.caja-seleccion p, .caja-seleccion ul {
+    color: #CFD8DC; 
     font-weight: 500;
-    margin-top: 20px;
 }
+
+.area-contenido-secundario {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+.area-contenido-secundario ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+
 
 .subtitulo {
     color: white; 
@@ -175,8 +210,7 @@ h1 {
     border: 3px solid transparent;
     border-radius: 10px;
     cursor: pointer;
-    /* TEXTO OSCURO CORREGIDO PARA ALTA LEGIBILIDAD */
-    color: var(--color-texto-oscuro); 
+    color: var(--color-texto-oscuro); /* Texto oscuro para legibilidad */
     box-shadow: 0 6px var(--color-btn-sombra); 
     transition: all 0.3s ease;
 }
