@@ -13,7 +13,6 @@ body {
 }
 
 #arena {
-    /* 🛠️ AJUSTE: Arena ligeramente más grande para mejor espacio */
     width: 950px; 
     height: 650px; 
     border: 10px solid #8bc34a; 
@@ -29,18 +28,17 @@ body {
     font-family: 'Banger', cursive;
     color: #3e2723;
     position: absolute;
-    top: 5px; /* Más bajo para no pegarse al borde */
+    top: 5px; 
     width: 100%;
     text-align: center;
-    /* 🛠️ AJUSTE: Reducción del font-size para evitar superposición */
-    font-size: 2em; 
+    font-size: 2em; /* Tamaño ajustado para UI */
     text-shadow: 2px 2px 0 #fff, 4px 4px 0 #ff9800;
 }
 
 /* UI DE VIDA */
 #ui-juego {
     position: absolute;
-    top: 45px; /* Más espacio debajo del título de la arena */
+    top: 45px; /* Espacio debajo del título */
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -51,18 +49,17 @@ body {
 
 .nombre-jugador {
     font-family: 'Banger', cursive;
-    /* 🛠️ AJUSTE: Fuente más pequeña para que quepa en el contenedor */
-    font-size: 1.3em; 
+    font-size: 1.3em; /* Tamaño ajustado para UI */
     color: #3e2723;
     text-shadow: 1px 1px 0 #fff;
-    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    white-space: nowrap; 
 }
 
 .p1-text { color: #ff9800; } 
 .p2-text { color: #e91e63; } 
 
 .barra-vida-container {
-    width: 35%; /* Ligeramente más estrecho para asegurar el espacio entre barras */
+    width: 35%; 
     text-align: center;
 }
 
@@ -83,10 +80,8 @@ body {
 
 .p1-color { background-color: #ff9800; } 
 .p2-color { background-color: #e91e63; } 
-#p1-vida-texto, #p2-vida-texto { font-weight: bold; }
 
-
-/* Personajes (sin cambios) */
+/* Personajes */
 .fruta-personaje {
     width: 60px;
     height: 60px;
@@ -103,7 +98,7 @@ body {
 .p1 { background-color: #ffd600; } 
 .p2 { background-color: #69f0ab; } 
 
-/* Proyectiles (sin cambios) */
+/* Proyectiles */
 .proyectil {
     width: 20px; 
     height: 20px;
