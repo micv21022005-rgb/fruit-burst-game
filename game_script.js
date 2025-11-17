@@ -7,14 +7,14 @@ const ARENA_HEIGHT = arena.offsetHeight;
 // --- CONSTANTES Y ESTADO DEL JUEGO ---
 const VELOCIDAD = 8;
 const PROYECTIL_VELOCIDAD = 10;
-const DAÑO = 10; // Daño por impacto
+const DAÑO = 10; 
 
 const P1 = {
     id: 'jugador1', element: document.getElementById('jugador1'), x: 100, y: ARENA_HEIGHT - 80, 
     vida: 100, vidaBarra: document.getElementById('barra-p1'), 
     vidaTexto: document.getElementById('p1-vida-texto'), 
     controles: { left: 'a', right: 'd', up: 'w', down: 's', fire: 'q' },
-    isFiring: false // Para limitar la cadencia de disparo
+    isFiring: false 
 };
 
 const P2 = {
@@ -42,7 +42,6 @@ function initGame() {
     document.addEventListener('keydown', handleKeyDown);
     document.addEventListener('keyup', handleKeyUp);
 
-    // Iniciar el loop de animación
     requestAnimationFrame(gameLoop);
 }
 
@@ -51,14 +50,14 @@ function initGame() {
 function handleKeyDown(e) {
     if (!gameActive) return;
     keysPressed[e.key] = true;
-    e.preventDefault(); // Previene scroll con WASD y flechas
+    e.preventDefault(); 
     
-    // Disparo inmediato (se maneja aquí y se usa un flag para limitar cadencia)
+    // Disparo inmediato (Q o Espacio)
     players.forEach(player => {
         if (e.key === player.controles.fire && !player.isFiring) {
-            lanzarProyectil(player, player === P1 ? P2 : P1);
+            lanzarProyectil(player);
             player.isFiring = true;
-            setTimeout(() => player.isFiring = false, 300); // 300ms de cooldown
+            setTimeout(() => player.isFiring = false, 300); // Cooldown de 300ms
         }
     });
 }
@@ -82,7 +81,7 @@ function updatePositions() {
         
         // Movimiento Vertical
         if (keysPressed[player.controles.up]) {
-            player.y = Math.max(0, player.y - VELOCIDAD);
+            player.y = Math.max(70, player.y - VELOCIDAD); 
             moved = true;
         } else if (keysPressed[player.controles.down]) {
             player.y = Math.min(ARENA_HEIGHT - player.element.offsetHeight, player.y + VELOCIDAD);
@@ -98,19 +97,18 @@ function updatePositions() {
 
 // --- LÓGICA DE PROYECTILES ---
 
-function lanzarProyectil(atacante, objetivo) {
+function lanzarProyectil(atacante) {
     const proyectil = document.createElement('div');
     proyectil.classList.add('proyectil', `proj-${atacante.id}`);
     
     // Posicionar el proyectil sobre el atacante
-    proyectil.style.left = (atacante.x + atacante.element.offsetWidth / 2 - 10) + 'px'; // 10px = mitad del tamaño del proyectil
+    proyectil.style.left = (atacante.x + atacante.element.offsetWidth / 2 - 10) + 'px'; 
     proyectil.style.top = (atacante.y + atacante.element.offsetHeight / 2 - 10) + 'px';
     arena.appendChild(proyectil);
 }
 
 // --- CICLO DEL JUEGO Y COLISIÓN ---
 
-// Detección de colisión precisa entre dos elementos
 function checkCollision(element1, element2) {
     const rect1 = element1.getBoundingClientRect();
     const rect2 = element2.getBoundingClientRect();
@@ -147,7 +145,7 @@ function updateProjectiles() {
         let currentTop = proj.offsetTop;
         const isP1Shot = proj.classList.contains(`proj-${P1.id}`);
         
-        // Mover proyectil: siempre hacia arriba (hacia el enemigo)
+        // Mover proyectil: siempre hacia arriba (en este juego)
         proj.style.top = (currentTop - PROYECTIL_VELOCIDAD) + 'px';
         
         // Definir objetivo
@@ -156,7 +154,7 @@ function updateProjectiles() {
 
         if (checkCollision(proj, targetElement)) {
             updateHealth(targetData, DAÑO);
-            proj.remove(); // Eliminar proyectil al impactar
+            proj.remove(); 
         } else if (currentTop < -20) { // Si sale de la arena
             proj.remove();
         }
@@ -174,8 +172,8 @@ function endGame(winner) {
 
 function gameLoop() {
     if (gameActive) {
-        updatePositions(); // Mueve a los personajes basados en las teclas presionadas
-        updateProjectiles(); // Mueve y verifica colisiones de proyectiles
+        updatePositions(); 
+        updateProjectiles(); 
     }
 
     // Continuar el loop
