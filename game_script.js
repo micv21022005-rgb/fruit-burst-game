@@ -13,7 +13,7 @@ const P1 = {
     id: 'jugador1', element: document.getElementById('jugador1'), x: 100, y: ARENA_HEIGHT - 80, 
     vida: 100, vidaBarra: document.getElementById('barra-p1'), 
     vidaTexto: document.getElementById('p1-vida-texto'), 
-    controles: { left: 'a', right: 'd', up: 'w', down: 's', fire: 'F' },
+    controles: { left: 'a', right: 'd', up: 'w', down: 's', fire: 'f' },
     isFiring: false 
 };
 
@@ -182,5 +182,6 @@ function gameLoop() {
 
 // Iniciar el juego al cargar la página
 initGame();
+
 
 
