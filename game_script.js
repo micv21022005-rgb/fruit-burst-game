@@ -134,7 +134,7 @@ function updateHealth(player, damage) {
     setTimeout(() => { player.element.style.filter = 'brightness(1)'; }, 100);
 
     if (player.vida <= 0) {
-        endGame(player.id === P1.id ? P2 : P1); // El que no murió, gana
+        endGame(player.id === P1.id ? P2 : P1); 
     }
 }
 
@@ -145,7 +145,7 @@ function updateProjectiles() {
         let currentTop = proj.offsetTop;
         const isP1Shot = proj.classList.contains(`proj-${P1.id}`);
         
-        // Mover proyectil: siempre hacia arriba (en este juego)
+        // Mover proyectil: siempre hacia arriba 
         proj.style.top = (currentTop - PROYECTIL_VELOCIDAD) + 'px';
         
         // Definir objetivo
@@ -182,4 +182,5 @@ function gameLoop() {
 
 // Iniciar el juego al cargar la página
 initGame();
+
 
