@@ -1,27 +1,28 @@
 /* Importar fuentes */
-@import url('https://fonts.googleapis.com/css2?family=Banger&family=Pacifico&family=Quicksand:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Quicksand:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap'); 
+ 
 :root {
-    /* PALETA PRINCIPAL */
-    --color-header: #4CAF50; 
-    --color-texto-header: #FFF;
-    --color-principal: #FFCC00; /* Logo Amarillo */
-    --color-secundario: #E74C3C; /* Logo Rojo */
-    --color-terciario: #4CAF50; /* Botón de inicio Verde */
-    --color-texto-oscuro: #3e2723; /* Marrón oscuro para texto legible */
+    /* PALETA PRINCIPAL ORGÁNICA */
+    --color-bosque-oscuro: #386641; 
+    --color-lima-claro: #A7C957; /* Acento para jugar (Verde brillante) */
+    --color-mango: #FF9F1C; /* Naranja cítrico */
+    --color-fresa: #D62828; /* Magenta tropical */
+    --color-tierra: #6B3E2E; /* Marrón para sombras de texto */
+    --color-texto-claro: #fcfcfc;
 }
-
+ 
 /* --- TEMAS DINÁMICOS (Para la pantalla de selección) --- */
 body.faccion-citricos {
-    --color-btn-faccion: #FF9800; 
+    --color-btn-faccion: var(--color-mango); 
     --color-btn-sombra: #E65100;
 }
-
+ 
 body.faccion-tropicales {
-    --color-btn-faccion: #E91E63; 
-    --color-btn-sombra: #C2185B;
+    --color-btn-faccion: var(--color-fresa); 
+    --color-btn-sombra: #A00000;
 }
-
+ 
 /* ESTILOS BASE */
 body {
     font-family: 'Quicksand', sans-serif;
@@ -31,68 +32,75 @@ body {
     min-height: 100vh;
     margin: 0;
     text-align: center;
-    color: var(--color-texto-oscuro);
-    padding-top: 85px; 
+    color: var(--color-texto-claro);
+    padding-top: 85px;
     
-    /* Fondo de la Landing Page */
-    background-image: url('fruta-con-lanza.png'); 
-    background-size: 150%; 
+    /* Fondo estilizado de Jungla */
+    background: linear-gradient(180deg, #4d7c0f 0%, #1e4d0f 100%);
+    background-image: url('fruta-con-lanza.png'); /* ¡Asegúrate de tener una imagen de fondo aquí! */
+    background-size: cover; 
     background-repeat: no-repeat;
-    background-position: center 30%; 
-    background-color: #333; 
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6); 
-    background-blend-mode: overlay; 
+    background-position: center center; 
+    
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); 
+    background-blend-mode: multiply; 
     transition: all 0.5s ease;
 }
-
-/* --- HEADER SÓLIDO Y PROFESIONAL --- */
+ 
+/* --- HEADER ORGÁNICO --- */
 .barra-navegacion {
     position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     padding: 10px 30px;
-    background-color: var(--color-header); 
+    background-color: var(--color-bosque-oscuro); 
     z-index: 1000; 
     display: flex;
-    justify-content: space-between;
+    justify-content: center; 
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
     font-family: 'Quicksand', sans-serif;
 }
 
+/* Para centrar los botones dentro del header */
+.header-contenido {
+    display: flex;
+    justify-content: center;
+}
+ 
 .header-btn {
     background-color: transparent;
-    color: var(--color-texto-header);
+    color: var(--color-texto-claro);
     border: none;
-    padding: 8px 12px; 
-    margin-left: 10px;
-    font-size: 0.85em; 
+    padding: 8px 18px;
+    margin: 0 5px;
+    font-size: 1em;
     font-weight: 700;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
-
+ 
 .header-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1); 
-    transform: translateY(-1px);
+    background-color: rgba(255, 255, 255, 0.2); 
+    transform: translateY(-2px);
 }
-
+ 
 /* TÍTULO/LOGO */
 h1 {
-    font-family: 'Banger', cursive;
-    color: var(--color-principal); 
-    font-size: 4.8em; 
+    font-family: 'Luckiest Guy', cursive;
+    color: var(--color-principal, #FFCC00); 
+    font-size: 5.5em; 
     margin: 0 0 10px 0;
     line-height: 0.9;
     text-shadow: 
-        -4px -4px 0 var(--color-secundario), 
-        4px 4px 0 var(--color-texto-oscuro); 
+        -5px -5px 0 var(--color-fresa), 
+        6px 6px 0 var(--color-tierra); 
 }
-
+ 
 /* --- MANEJO DE MÚLTIPLES PANTALLAS --- */
 .contenedor-principal {
     display: flex;
@@ -100,13 +108,15 @@ h1 {
     align-items: center;
     justify-content: center;
     width: 90%;
-    max-width: 450px;
+    max-width: 500px;
     padding: 30px;
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
     
-    /* Para que todas ocupen el mismo lugar */
+    /* Estilo de caja de juego */
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 5px solid var(--color-lima-claro);
+    border-radius: 25px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    
     position: absolute; 
     top: 50%;
     left: 50%;
@@ -114,119 +124,224 @@ h1 {
     min-height: 50vh;
     transition: opacity 0.4s ease, visibility 0.4s ease;
 }
-
-/* Estado inicial: Pantallas ocultas */
+ 
+/* Estados de visibilidad */
 .pantalla-oculta {
     opacity: 0;
     visibility: hidden;
     pointer-events: none; 
 }
-
-/* Estado activo: Solo una visible a la vez */
 .pantalla-activa {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
-
-/* CAJA DE CONTENIDO SECUNDARIO (Verde oscuro para legibilidad) */
+ 
+/* CAJA DE CONTENIDO SECUNDARIO (Se usa dentro de .contenedor-principal) */
 .caja-seleccion {
-    background-color: rgba(69, 90, 100, 0.9); 
+    background-color: transparent; 
     border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+    padding: 0;
+    box-shadow: none;
     width: 100%;
     box-sizing: border-box;
-    transition: all 0.5s ease;
 }
-
+ 
 .caja-seleccion h2 { 
-    font-family: 'Banger', cursive; 
-    color: white; 
-    font-size: 2.5em;
+    font-family: 'Luckiest Guy', cursive; 
+    color: var(--color-texto-claro); 
+    font-size: 3em;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 0 var(--color-secundario);
+    text-shadow: 3px 3px 0 var(--color-bosque-oscuro);
+}
+ 
+.subtitulo {
+    color: #F0F0F0; 
+    font-size: 1.2em;
+    margin-bottom: 40px; 
+    font-weight: 400;
+    text-shadow: 1px 1px 3px black; 
 }
 
-.caja-seleccion p, .caja-seleccion ul {
-    color: #CFD8DC; 
-    font-weight: 500;
-}
-
+/* Área de contenido para la vista previa, saldo, etc. */
 .area-contenido-secundario {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     padding: 15px;
     margin-top: 20px;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid var(--color-fresa);
 }
-.area-contenido-secundario ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: left;
+.area-contenido-secundario h3 {
+    font-family: 'Bangers', cursive;
+    color: var(--color-lima-claro);
+    font-size: 1.5em;
+    margin: 0 0 10px 0;
 }
-
-
-.subtitulo {
-    color: white; 
-    font-size: 1.2em;
-    margin-bottom: 30px; 
-    font-weight: 700;
-    text-shadow: 1px 1px 5px var(--color-texto-oscuro); 
-}
-
-/* BOTONES DE INICIO/CONTINUAR */
+ 
+/* BOTONES DE INICIO/CONTINUAR (Estilo 3D) */
 .boton-inicio, .boton-continuar {
-    font-family: 'Banger', cursive;
-    background-color: var(--color-terciario); 
-    color: white;
+    font-family: 'Bangers', cursive;
+    background-color: var(--color-lima-claro); 
+    color: var(--color-bosque-oscuro); 
     border: none;
-    padding: 15px 35px; 
-    font-size: 1.4em; 
+    padding: 15px 40px; 
+    font-size: 1.8em; 
     font-weight: 700;
-    border-radius: 50px;
+    border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 6px #388E3C; 
+    box-shadow: 0 8px #709840; 
     text-transform: uppercase;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
     width: 90%; 
     max-width: 400px;
     margin-top: 20px;
+    letter-spacing: 1px;
 }
-
+ 
+.boton-inicio:active, .boton-continuar:active {
+    box-shadow: 0 3px #709840; 
+    transform: translateY(5px);
+}
+ 
 /* ESTILOS DE BOTONES DE FACCIÓN */
 .opciones-faccion {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px; 
     width: 100%;
 }
-
+ 
 .faccion-btn {
     font-family: 'Quicksand', sans-serif;
-    padding: 15px; 
-    font-size: 1.1em;
+    padding: 20px; 
+    font-size: 1.2em;
     font-weight: 700;
     border: 3px solid transparent;
-    border-radius: 10px;
+    border-radius: 15px; 
     cursor: pointer;
-    color: var(--color-texto-oscuro); /* Texto oscuro para legibilidad */
-    box-shadow: 0 6px var(--color-btn-sombra); 
+    color: var(--color-texto-claro);
+    box-shadow: 0 8px var(--color-btn-sombra); 
     transition: all 0.3s ease;
 }
-
-/* Colores de botones de facción específicos */
+ 
+.faccion-btn:hover {
+    filter: brightness(1.1);
+}
+ 
+/* Ajuste de colores de botones de facción */
 .faccion-btn.faccion-citricos { 
-    background-color: var(--color-btn-faccion); 
-    box-shadow: 0 6px var(--color-btn-sombra);
+    background-color: var(--color-mango); 
 }
 .faccion-btn.faccion-tropicales { 
-    background-color: var(--color-btn-faccion); 
-    box-shadow: 0 6px var(--color-btn-sombra);
+    background-color: var(--color-fresa); 
 }
-
+ 
 .faccion-btn.seleccionado {
-    border-color: white;
-    box-shadow: 0 0 15px 5px var(--color-principal);
+    border-color: yellow; 
+    box-shadow: 0 0 15px 5px var(--color-lima-claro);
     transform: scale(1.05);
+}
+ 
+.mensaje-espera {
+    font-style: italic;
+    color: #F0F0F0;
+    margin-top: 20px;
+}
+ 
+/* --- ESTILOS PARA LA TIENDA, LOGIN Y PERSONALIZACIÓN (NUEVOS) --- */
+ 
+.opciones-personalizacion, .opciones-tienda, .opcion-grupo {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+}
+ 
+.opcion-grupo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+ 
+.opcion-grupo label {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    color: var(--color-texto-claro);
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 0 var(--color-bosque-oscuro);
+}
+ 
+/* Estilo de Inputs y Selects */
+.input-estilizado, .input-color-estilizado {
+    width: 100%;
+    padding: 12px;
+    border: 3px solid var(--color-bosque-oscuro);
+    border-radius: 8px;
+    background-color: #f7f3e8; 
+    color: var(--color-tierra);
+    font-size: 1em;
+    font-family: 'Quicksand', sans-serif;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+ 
+.input-estilizado:focus, .input-color-estilizado:focus {
+    border-color: var(--color-lima-claro);
+    box-shadow: 0 0 10px rgba(167, 201, 87, 0.5);
+    outline: none;
+}
+ 
+/* Estilo específico para el input de color (más compacto) */
+.input-color-estilizado {
+    height: 45px;
+    width: 100px;
+    padding: 2px;
+}
+ 
+/* Estilos de los ítems de la Tienda */
+.item-tienda {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 2px solid var(--color-lima-claro);
+    box-shadow: 0 4px 0 var(--color-bosque-oscuro);
+    transition: transform 0.2s;
+}
+ 
+.item-tienda:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 var(--color-bosque-oscuro);
+}
+ 
+.item-nombre {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--color-texto-claro);
+}
+ 
+/* Botón de compra en la tienda */
+.item-tienda .header-btn {
+    background-color: var(--color-mango);
+    color: white;
+    font-family: 'Bangers', cursive;
+    padding: 8px 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px #E65100;
+}
+ 
+.item-tienda .header-btn:hover {
+    background-color: #FFB74D;
+    transform: none;
+}
+ 
+.item-tienda .header-btn:active {
+    box-shadow: 0 1px #E65100;
+    transform: translateY(2px);
 }
