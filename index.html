@@ -4,37 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guerra de Frutas - Arena de Batalla</title>
-    <link href="https://fonts.googleapis.com/css2?family=Banger&family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="cuerpo-juego">
-
+ 
     <header class="barra-navegacion" id="main-header">
-        <div class="header-izquierda">
-            <button class="header-btn principal" onclick="mostrarPantalla('pantalla-inicio')">INICIO</button>
-        </div>
-        
-        <div class="header-derecha">
+        <div class="header-contenido">
+            <button class="header-btn" onclick="mostrarPantalla('pantalla-inicio')">INICIO</button>
             <button class="header-btn" onclick="mostrarPantalla('pantalla-personalizar')">PERSONALIZAR FRUTA</button>
             <button class="header-btn" onclick="mostrarPantalla('pantalla-login')">INICIAR SESIÓN</button>
             <button class="header-btn" onclick="mostrarPantalla('pantalla-tienda')">TIENDA</button>
         </div>
     </header>
-
+ 
     <div class="contenedor-principal pantalla-activa" id="pantalla-inicio">
         <h1>GUERRA DE FRUTAS</h1>
         <p class="subtitulo">La lucha por la supremacía tropical ha comenzado. Elige tu facción y entra en la arena.</p>
-
+ 
         <button id="boton-jugar" class="boton-inicio" onclick="mostrarPantalla('seleccion-facciones')">
             ¡A LA CARGA TROPICAL! 🌴
         </button>
     </div>
-
+ 
     <div class="contenedor-principal pantalla-oculta" id="seleccion-facciones">
         <div class="caja-seleccion">
             <h2>ELIGE TU ALIANZA</h2>
-            
+             
             <div class="opciones-faccion">
                 <button class="faccion-btn faccion-citricos" onclick="seleccionarFaccion('Citricos')">
                     ☀️ Guardianes Cítricos 🍋
@@ -43,65 +38,99 @@
                     🌺 Defensores Tropicales 🍍
                 </button>
             </div>
-
+ 
             <p class="mensaje-espera">Tu elección sella el destino de las islas...</p>
-            
-            <button id="boton-continuar" class="boton-continuar" onclick="continuarJuego()" style="display: none;">
-                </button>
-        </div>
-    </div>
-    
-    <div class="contenedor-principal pantalla-oculta" id="pantalla-tienda">
-        <div class="caja-seleccion">
-            <h2>🛒 TIENDA DE ARMAS Y SKINS</h2>
-            <p>Aquí puedes comprar mejoras para tus batallas usando Monedas Tropicales.</p>
-            <div class="area-contenido-secundario">
-                <h3>OBJETOS DISPONIBLES</h3>
-                <ul>
-                    <li>Lanza de Plátano Reforzada (1000 Monedas)</li>
-                    <li>Skin de Sandía de Élite (2500 Monedas)</li>
-                    <li>Doble Daño (Temporal)</li>
-                </ul>
-            </div>
-            <button class="boton-inicio volver-btn" onclick="mostrarPantalla('pantalla-inicio')">
-                ◀ VOLVER AL INICIO
+             
+            <button id="boton-continuar" class="boton-inicio boton-continuar" onclick="continuarJuego()" style="display: none;">
             </button>
         </div>
     </div>
-
+ 
     <div class="contenedor-principal pantalla-oculta" id="pantalla-personalizar">
         <div class="caja-seleccion">
-            <h2>🎨 PERSONALIZA TU FRUTA</h2>
-            <p>Elige tu color, accesorio y efectos de proyectil.</p>
+            <h2>PERSONALIZA TU FRUTA GUERRERA</h2>
+            <p class="subtitulo">Elige tu arma, armadura y un color único para la batalla.</p>
+ 
             <div class="area-contenido-secundario">
-                <p>Elige tu sombrero:</p>
-                <button class="faccion-btn" style="background-color: #9C27B0;">Sombrero Pirata</button>
-                <button class="faccion-btn" style="background-color: #2196F3;">Gafas de Sol</button>
-                <p style="margin-top: 15px;">Tu fruta actual: 🍋</p>
+                <h3>Vista Previa</h3>
+                <div id="fruta-preview" style="font-size: 5em; margin: 20px;">
+                    🍋
+                </div>
             </div>
-            <button class="boton-inicio volver-btn" onclick="mostrarPantalla('pantalla-inicio')">
-                ◀ VOLVER AL INICIO
-            </button>
+ 
+            <div class="opciones-personalizacion">
+                
+                <div class="opcion-grupo">
+                    <label for="selector-fruta">Fruta Base:</label>
+                    <select id="selector-fruta" class="input-estilizado" onchange="actualizarPreview()">
+                        <option value="🍋">Limón (Cítrico)</option>
+                        <option value="🍊">Naranja (Cítrico)</option>
+                        <option value="🍍">Piña (Tropical)</option>
+                        <option value="🍉">Sandía (Tropical)</option>
+                        <option value="🥝">Kiwi (Neutral)</option>
+                    </select>
+                </div>
+ 
+                <div class="opcion-grupo">
+                    <label for="color-armadura">Color de Armadura:</label>
+                    <input type="color" id="color-armadura" class="input-color-estilizado" value="#386641" onchange="actualizarPreview()">
+                </div>
+                
+                <button class="boton-inicio" onclick="guardarPersonalizacion()">GUARDAR CAMBIOS</button>
+            </div>
         </div>
     </div>
-
+ 
+    <div class="contenedor-principal pantalla-oculta" id="pantalla-tienda">
+        <div class="caja-seleccion">
+            <h2>TIENDA TROPICAL</h2>
+            <p class="subtitulo">¡Compra mejoras y equipo épico con tus zumos!</p>
+ 
+            <div class="area-contenido-secundario">
+                <h3>Tu Saldo de Zumo:</h3>
+                <p id="saldo-zumo" style="font-size: 2em; color: var(--color-lima-claro); font-family: 'Bangers', cursive;">1200 💧</p>
+            </div>
+ 
+            <div class="opciones-tienda">
+                <div class="item-tienda">
+                    <span class="item-nombre">Coraza de Coco (+HP)</span>
+                    <button class="header-btn" onclick="comprarItem(150)">150 💧 Comprar</button>
+                </div>
+                <div class="item-tienda">
+                    <span class="item-nombre">Proyectiles Picantes (+Daño)</span>
+                    <button class="header-btn" onclick="comprarItem(300)">300 💧 Comprar</button>
+                </div>
+                <div class="item-tienda">
+                    <span class="item-nombre">Doble Jugo (Doble XP)</span>
+                    <button class="header-btn" onclick="comprarItem(500)">500 💧 Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
     <div class="contenedor-principal pantalla-oculta" id="pantalla-login">
         <div class="caja-seleccion">
-            <h2>🔑 INICIAR SESIÓN</h2>
-            <p>Accede a tu cuenta para guardar tu progreso.</p>
-            <div class="area-contenido-secundario">
-                <form onsubmit="event.preventDefault(); alert('Intentando acceder... (Simulado)');">
-                    <input type="text" placeholder="Nombre de Usuario" style="padding: 10px; margin-bottom: 10px; width: 80%;">
-                    <input type="password" placeholder="Contraseña Secreta" style="padding: 10px; margin-bottom: 20px; width: 80%;">
-                    <button class="faccion-btn" type="submit" style="background-color: #03A9F4; color: white; width: 80%;">ACCEDER</button>
-                </form>
-            </div>
-            <button class="boton-inicio volver-btn" onclick="mostrarPantalla('pantalla-inicio')">
-                ◀ VOLVER AL INICIO
-            </button>
+            <h2>ACCESO A LA ARENA</h2>
+            <p class="subtitulo">Introduce tus credenciales de batalla.</p>
+ 
+            <form id="formulario-login">
+                <div class="opcion-grupo">
+                    <label for="username">Nombre de Batalla:</label>
+                    <input type="text" id="username" class="input-estilizado" placeholder="Ej: Capitán Banana">
+                </div>
+ 
+                <div class="opcion-grupo">
+                    <label for="password">Contraseña Secreta:</label>
+                    <input type="password" id="password" class="input-estilizado" placeholder="*****">
+                </div>
+ 
+                <button type="submit" class="boton-inicio" style="margin-top: 30px;">INICIAR SESIÓN</button>
+            </form>
+            
+            <p class="mensaje-espera" style="margin-top: 20px;">¿Nuevo guerrero? <a href="#" onclick="alert('Funcionalidad de registro pendiente!')" style="color: var(--color-lima-claro); text-decoration: none;">Regístrate aquí</a></p>
         </div>
     </div>
-
+ 
     <script src="script.js"></script>
 </body>
 </html>
