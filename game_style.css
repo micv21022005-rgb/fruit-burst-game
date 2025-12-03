@@ -1,122 +1,163 @@
 /* Importar fuentes */
-@import url('https://fonts.googleapis.com/css2?family=Banger&family=Pacifico&family=Quicksand:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Quicksand:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap'); 
+ 
+/* PALETA DE JUEGO (Coherente con el menú) */
+:root {
+    --color-bosque-oscuro: #386641; 
+    --color-lima-claro: #A7C957; 
+    --color-mango: #FF9F1C; 
+    --color-fresa: #D62828; 
+    --color-tierra: #6B3E2E; 
+    --color-texto-claro: #fcfcfc;
+    --color-arena-borde: #588157; 
+    --color-arena-fondo: #88C34A; 
+}
+ 
 body {
-    background-color: #f7f3e8; 
-    color: #3e2723;
+    background-color: #212121; 
+    color: var(--color-texto-claro);
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     font-family: 'Quicksand', sans-serif;
+    padding: 20px;
 }
-
+ 
 #arena {
     width: 950px; 
     height: 650px; 
-    border: 10px solid #8bc34a; 
+    border: 15px solid var(--color-arena-borde); 
     border-radius: 20px;
     position: relative;
-    background-color: #d4e157; 
-    background-image: linear-gradient(to top, #aed581 0%, #d4e157 100%); 
+    background-color: var(--color-arena-fondo); 
+    background-image: linear-gradient(to bottom, #9BC53D 0%, #6AA84F 100%); 
     overflow: hidden; 
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 0, 0, 0.5);
 }
-
+ 
 .arena-title {
-    font-family: 'Banger', cursive;
-    color: #3e2723;
+    font-family: 'Luckiest Guy', cursive;
+    color: var(--color-texto-claro);
     position: absolute;
     top: 5px; 
     width: 100%;
     text-align: center;
-    font-size: 2em; /* Tamaño ajustado para UI */
-    text-shadow: 2px 2px 0 #fff, 4px 4px 0 #ff9800;
+    font-size: 2.5em; 
+    text-shadow: 3px 3px 0 var(--color-bosque-oscuro), 5px 5px 0 var(--color-mango);
+    letter-spacing: 1px;
 }
-
-/* UI DE VIDA */
+ 
+/* UI DE VIDA (HUD de Juego) */
 #ui-juego {
     position: absolute;
-    top: 45px; /* Espacio debajo del título */
+    top: 60px; 
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 30px;
     box-sizing: border-box;
     z-index: 5;
 }
-
+ 
 .nombre-jugador {
-    font-family: 'Banger', cursive;
-    font-size: 1.3em; /* Tamaño ajustado para UI */
-    color: #3e2723;
-    text-shadow: 1px 1px 0 #fff;
+    font-family: 'Bangers', cursive;
+    font-size: 1.5em;
+    color: var(--color-texto-claro);
+    text-shadow: 2px 2px 0 var(--color-tierra);
     white-space: nowrap; 
+    margin-bottom: 5px;
+    display: block;
 }
-
-.p1-text { color: #ff9800; } 
-.p2-text { color: #e91e63; } 
-
+ 
+.p1-text { color: var(--color-mango); } 
+.p2-text { color: var(--color-fresa); } 
+ 
 .barra-vida-container {
-    width: 35%; 
-    text-align: center;
+    width: 300px; 
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-
+ 
 .barra-vida-exterior {
-    height: 20px;
-    background-color: #ecf0f1; 
-    border: 2px solid #3e2723;
-    border-radius: 5px;
+    height: 25px;
+    background-color: #555; 
+    border: 3px solid var(--color-bosque-oscuro);
+    border-radius: 8px;
     overflow: hidden;
     margin-top: 5px;
 }
-
+ 
 .barra-vida-interior {
     height: 100%;
     width: 100%;
     transition: width 0.3s ease;
+    background-image: linear-gradient(to right, var(--color-lima-claro), var(--color-mango));
 }
-
-.p1-color { background-color: #ff9800; } 
-.p2-color { background-color: #e91e63; } 
-
+ 
+.p1-color { background-color: var(--color-mango); } 
+.p2-color { background-color: var(--color-fresa); } 
+ 
+#p1-vida-texto, #p2-vida-texto {
+    font-family: 'Bangers', cursive;
+    font-size: 1.2em;
+    margin-top: 5px;
+    display: block;
+    color: var(--color-texto-claro);
+    text-shadow: 1px 1px 0 black;
+}
+ 
 /* Personajes */
 .fruta-personaje {
-    width: 60px;
-    height: 60px;
+    width: 70px; 
+    height: 70px;
     position: absolute;
-    font-size: 40px;
+    font-size: 50px; 
     text-align: center;
-    line-height: 60px;
+    line-height: 70px;
     border-radius: 50%;
-    transition: left 0.05s, top 0.05s; 
-    border: 3px solid #3e2723;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    transition: left 0.05s, top 0.05s, filter 0.1s; 
+    border: 5px solid var(--color-tierra); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.8);
+    animation: float 2s infinite alternate ease-in-out; 
 }
-
-.p1 { background-color: #ffd600; } 
-.p2 { background-color: #69f0ab; } 
-
+ 
+@keyframes float {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-5px); }
+}
+ 
+.p1 { background-color: #FFEA00; } 
+.p2 { background-color: #00E676; } 
+ 
 /* Proyectiles */
 .proyectil {
-    width: 20px; 
-    height: 20px;
-    background-color: #ffcc80; 
+    width: 25px; 
+    height: 25px;
+    /* Damos color de explosión */
+    background-color: #FFCC80; 
     border-radius: 50%;
     position: absolute;
-    border: 2px solid #3e2723;
-    box-shadow: 0 0 5px #ff9800;
+    border: 3px solid var(--color-tierra);
+    box-shadow: 0 0 8px #FFCC80;
+    /* Rotación de 90 grados para que la sombra parezca un proyectil */
+    transform: rotate(90deg); 
 }
-
+ 
 #mensaje-juego {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Banger', cursive;
-    font-size: 5em;
-    color: #ff9800;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 6em;
+    color: var(--color-lima-claro);
     z-index: 10;
-    text-shadow: 4px 4px 0 #3e2723;
+    text-shadow: 5px 5px 0 var(--color-bosque-oscuro), 8px 8px 0 var(--color-fresa);
+    white-space: nowrap;
 }
