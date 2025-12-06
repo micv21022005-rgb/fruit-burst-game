@@ -9,7 +9,7 @@ const MSJ_JUEGO = document.getElementById('mensaje-juego');
 const VELOCIDAD = 8;
 const PROYECTIL_VELOCIDAD = 12; 
 const DAÑO = 10; 
-const PROYECTILES_ACTIVAS = []; // Array para manejar múltiples proyectiles
+const PROYECTILES_ACTIVAS = []; 
 const COOLDOWN_MS = 300; 
  
 // Configuración de Jugadores
@@ -41,14 +41,27 @@ const players = [P1, P2];
 let keysPressed = {};
 let gameActive = true;
  
-// --- INICIALIZACIÓN ---
+// --- INICIALIZACIÓN (MODIFICADA) ---
  
 function initGame() {
+    // 1. APLICAR PERSONALIZACIÓN GUARDADA
+    const datosGuardados = localStorage.getItem('frutaSeleccionada');
+    if (datosGuardados) {
+        const personalizacion = JSON.parse(datosGuardados);
+        
+        // Aplicar a Jugador 1 
+        P1.element.textContent = personalizacion.fruta;
+        // P1.element.style.backgroundColor = personalizacion.color; // Opcional: cambiar el fondo de la fruta
+        P1.element.style.borderColor = personalizacion.color; // Borde de armadura
+    }
+ 
+    // 2. Posicionar jugadores
     P1.element.style.left = P1.x + 'px';
     P1.element.style.top = P1.y + 'px';
     P2.element.style.left = P2.x + 'px';
     P2.element.style.top = P2.y + 'px';
  
+    // 3. Iniciar el ciclo de juego
     document.addEventListener('keydown', handleKeyDown);
     document.addEventListener('keyup', handleKeyUp);
  
@@ -133,8 +146,8 @@ function lanzarProyectil(atacante) {
         element: proyectil,
         x: startX - 10, 
         y: startY - 10,
-        dx: PROYECTIL_VELOCIDAD * Math.cos(angle), // Componente X de la velocidad
-        dy: PROYECTIL_VELOCIDAD * Math.sin(angle), // Componente Y de la velocidad
+        dx: PROYECTIL_VELOCIDAD * Math.cos(angle), 
+        dy: PROYECTIL_VELOCIDAD * Math.sin(angle), 
         shooter: atacante,
         target: defensor
     };
@@ -209,7 +222,7 @@ function updateProjectiles() {
             hit = true;
         } 
         
-        // 2. Salida de la Arena (con un margen de 30px)
+        // 2. Salida de la Arena 
         if (
             projData.x < -30 || 
             projData.x > ARENA_WIDTH + 30 || 
