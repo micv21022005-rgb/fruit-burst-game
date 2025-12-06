@@ -3,21 +3,18 @@
 // --- LÓGICA CENTRAL DE NAVEGACIÓN ---
  
 function mostrarPantalla(idPantallaAMostrar) {
-    // 1. Ocultar todas las pantallas principales
     const todasLasPantallas = document.querySelectorAll('.contenedor-principal');
     todasLasPantallas.forEach(pantalla => {
         pantalla.classList.add('pantalla-oculta');
         pantalla.classList.remove('pantalla-activa');
     });
  
-    // 2. Mostrar la pantalla solicitada
     const pantallaActiva = document.getElementById(idPantallaAMostrar);
     if (pantallaActiva) {
         pantallaActiva.classList.add('pantalla-activa');
         pantallaActiva.classList.remove('pantalla-oculta');
     }
     
-    // 3. Resetear estilos de facción al volver al inicio
     if (idPantallaAMostrar === 'pantalla-inicio') {
         document.body.classList.remove('faccion-citricos', 'faccion-tropicales');
     }
@@ -35,29 +32,29 @@ function seleccionarFaccion(faccion) {
     botonCitricos.classList.remove('seleccionado');
     botonTropicales.classList.remove('seleccionado');
      
-    // Aplicar la clase de estilo al body
     if (faccion === 'Citricos') {
         document.body.classList.add('faccion-citricos');
         botonCitricos.classList.add('seleccionado');
-        botonContinuar.style.backgroundColor = '#FF9F1C'; // Color Cítrico
+        botonContinuar.style.backgroundColor = '#FF9F1C'; 
         botonContinuar.innerHTML = '¡Defender Cítricos! 🍋';
     } else if (faccion === 'Tropicales') {
         document.body.classList.add('faccion-tropicales');
         botonTropicales.classList.add('seleccionado');
-        botonContinuar.style.backgroundColor = '#D62828'; // Color Tropical
+        botonContinuar.style.backgroundColor = '#E91E63'; // Color Rosado/Magenta
         botonContinuar.innerHTML = '¡Luchar por el Trópico! 🍍';
     }
     
-    // Mostrar el botón de continuar
     botonContinuar.style.display = 'block'; 
 }
  
-// Función que se llama al presionar el botón de continuar: REDIRIGE AL JUEGO
 function continuarJuego() {
+    // Almacenar la facción seleccionada si es necesario (opcional)
+    const faccionSeleccionada = document.querySelector('.faccion-btn.seleccionado');
+    if (faccionSeleccionada) {
+        localStorage.setItem('faccionJugador', faccionSeleccionada.textContent.includes('Cítricos') ? 'Citricos' : 'Tropicales');
+    }
     window.location.href = 'game.html'; 
 }
- 
-// --- NUEVAS FUNCIONES PARA LOGIN, TIENDA Y PERSONALIZACIÓN ---
  
 // --- LÓGICA DE PERSONALIZACIÓN ---
  
@@ -74,13 +71,15 @@ function actualizarPreview() {
     estadoPersonalizacion.fruta = selectorFruta.value;
     estadoPersonalizacion.color = colorArmadura.value;
     
-    // Actualizar el emoji y darle un borde con el color de la armadura
     preview.textContent = estadoPersonalizacion.fruta;
     preview.style.border = `4px solid ${estadoPersonalizacion.color}`;
     preview.style.borderRadius = '50%';
 }
  
 function guardarPersonalizacion() {
+    // CAMBIO CLAVE: GUARDAR EN LOCAL STORAGE
+    localStorage.setItem('frutaSeleccionada', JSON.stringify(estadoPersonalizacion));
+    
     console.log('Personalización guardada:', estadoPersonalizacion);
     alert(`¡Tu fruta ${estadoPersonalizacion.fruta} ha sido equipada con armadura ${estadoPersonalizacion.color}!`);
     mostrarPantalla('pantalla-inicio');
@@ -89,7 +88,7 @@ function guardarPersonalizacion() {
  
 // --- LÓGICA DE TIENDA ---
  
-let zumoActual = 1200; // Zumo inicial
+let zumoActual = 1200; 
  
 function actualizarSaldo() {
     const saldoElement = document.getElementById('saldo-zumo');
@@ -98,11 +97,12 @@ function actualizarSaldo() {
     }
 }
  
-function comprarItem(costo) {
+function comprarItem(costo, nombreItem) {
     if (zumoActual >= costo) {
         zumoActual -= costo;
         actualizarSaldo();
-        alert(`¡Compra exitosa! Has gastado ${costo} 💧. Saldo restante: ${zumoActual} 💧.`);
+        alert(`¡Compra exitosa! Has comprado ${nombreItem} por ${costo} 💧. Saldo restante: ${zumoActual} 💧.`);
+        // Aquí iría la lógica para registrar la compra en el localStorage
     } else {
         alert('¡Zumo insuficiente! ¡A cosechar más victorias!');
     }
@@ -128,9 +128,16 @@ if (loginForm) {
     });
 }
  
-// Inicializar mostrando solo la pantalla de inicio al cargar y actualizar saldos/previews
 document.addEventListener('DOMContentLoaded', () => {
     mostrarPantalla('pantalla-inicio'); 
     actualizarSaldo();
     actualizarPreview();
+    // Cargar personalización previa si existe
+    const storedData = localStorage.getItem('frutaSeleccionada');
+    if (storedData) {
+        estadoPersonalizacion = JSON.parse(storedData);
+        // Actualizar los selectores en la UI si es necesario
+        // document.getElementById('selector-fruta').value = estadoPersonalizacion.fruta;
+        // document.getElementById('color-armadura').value = estadoPersonalizacion.color;
+    }
 });
