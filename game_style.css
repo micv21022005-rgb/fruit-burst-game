@@ -7,7 +7,7 @@
     --color-bosque-oscuro: #386641; 
     --color-lima-claro: #A7C957; 
     --color-mango: #FF9F1C; 
-    --color-fresa: #D62828; 
+    --color-fresa: #E91E63; /* Color Rosado/Magenta para Tropicales y P2 */
     --color-tierra: #6B3E2E; 
     --color-texto-claro: #fcfcfc;
     --color-arena-borde: #588157; 
@@ -15,7 +15,9 @@
 }
  
 body {
-    background-color: #212121; 
+    /* Fondo oscuro y profundo para la Arena */
+    background-color: #1a4314; 
+    background-image: linear-gradient(135deg, #1a4314 0%, #0d280a 100%);
     color: var(--color-texto-claro);
     margin: 0;
     display: flex;
@@ -53,7 +55,7 @@ body {
 /* UI DE VIDA (HUD de Juego) */
 #ui-juego {
     position: absolute;
-    top: 60px; 
+    top: 70px; /* ¡CORRECCIÓN! Movido más abajo para evitar superposición con el título */
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -73,6 +75,7 @@ body {
 }
  
 .p1-text { color: var(--color-mango); } 
+/* ¡CORRECCIÓN! Usando el nuevo color rosado para P2 */
 .p2-text { color: var(--color-fresa); } 
  
 .barra-vida-container {
@@ -101,6 +104,7 @@ body {
 }
  
 .p1-color { background-color: var(--color-mango); } 
+/* Fondo de barra P2, usando el color magenta */
 .p2-color { background-color: var(--color-fresa); } 
  
 #p1-vida-texto, #p2-vida-texto {
@@ -139,13 +143,11 @@ body {
 .proyectil {
     width: 25px; 
     height: 25px;
-    /* Damos color de explosión */
     background-color: #FFCC80; 
     border-radius: 50%;
     position: absolute;
     border: 3px solid var(--color-tierra);
     box-shadow: 0 0 8px #FFCC80;
-    /* Rotación de 90 grados para que la sombra parezca un proyectil */
     transform: rotate(90deg); 
 }
  
