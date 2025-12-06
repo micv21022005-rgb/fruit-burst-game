@@ -6,8 +6,8 @@
     /* PALETA PRINCIPAL ORGÁNICA */
     --color-bosque-oscuro: #386641; 
     --color-lima-claro: #A7C957; /* Acento para jugar (Verde brillante) */
-    --color-mango: #FF9F1C; /* Naranja cítrico */
-    --color-fresa: #D62828; /* Magenta tropical */
+    --color-mango: #FF9F1C; /* Naranja cítrico (Botón Citricos) */
+    --color-fresa: #E91E63; /* ¡NUEVO COLOR ROSADO/MAGENTA! (Botón Tropicales) */
     --color-tierra: #6B3E2E; /* Marrón para sombras de texto */
     --color-texto-claro: #fcfcfc;
 }
@@ -20,7 +20,7 @@ body.faccion-citricos {
  
 body.faccion-tropicales {
     --color-btn-faccion: var(--color-fresa); 
-    --color-btn-sombra: #A00000;
+    --color-btn-sombra: #AD1457; /* Sombra ajustada al nuevo magenta */
 }
  
 /* ESTILOS BASE */
@@ -37,7 +37,7 @@ body {
     
     /* Fondo estilizado de Jungla */
     background: linear-gradient(180deg, #4d7c0f 0%, #1e4d0f 100%);
-    background-image: url('fruta-con-lanza.png'); /* ¡Asegúrate de tener una imagen de fondo aquí! */
+    background-image: url('fruta-con-lanza.png'); 
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center center; 
@@ -63,7 +63,6 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
-/* Para centrar los botones dentro del header */
 .header-contenido {
     display: flex;
     justify-content: center;
@@ -111,11 +110,11 @@ h1 {
     max-width: 500px;
     padding: 30px;
     
-    /* Estilo de caja de juego */
-    background-color: rgba(0, 0, 0, 0.3);
+    /* Fondo oscuro para legibilidad */
+    background-color: rgba(0, 0, 0, 0.8); 
     border: 5px solid var(--color-lima-claro);
     border-radius: 25px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.1); 
     
     position: absolute; 
     top: 50%;
@@ -137,7 +136,7 @@ h1 {
     pointer-events: auto;
 }
  
-/* CAJA DE CONTENIDO SECUNDARIO (Se usa dentro de .contenedor-principal) */
+/* CAJA DE CONTENIDO SECUNDARIO */
 .caja-seleccion {
     background-color: transparent; 
     border-radius: 20px;
@@ -163,7 +162,6 @@ h1 {
     text-shadow: 1px 1px 3px black; 
 }
 
-/* Área de contenido para la vista previa, saldo, etc. */
 .area-contenido-secundario {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
@@ -172,7 +170,7 @@ h1 {
     text-align: center;
     width: 100%;
     box-sizing: border-box;
-    border: 2px solid var(--color-fresa);
+    border: 2px solid var(--color-fresa); 
 }
 .area-contenido-secundario h3 {
     font-family: 'Bangers', cursive;
@@ -251,7 +249,89 @@ h1 {
     margin-top: 20px;
 }
  
-/* --- ESTILOS PARA LA TIENDA, LOGIN Y PERSONALIZACIÓN (NUEVOS) --- */
+/* --- ESTILOS PARA LA TIENDA (TARJETAS) --- */
+ 
+/* Contenedor de las tarjetas de la tienda */
+.opciones-tienda {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto */
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+}
+ 
+/* Estilo de la tarjeta individual */
+.item-tienda {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+     
+    /* Fondo que simula madera/relieve */
+    background: linear-gradient(145deg, #a7c957, #8aa64c);
+    color: var(--color-bosque-oscuro); 
+    border-radius: 15px;
+    padding: 15px;
+    cursor: pointer;
+    
+    /* Borde 3D */
+    border: 3px solid var(--color-bosque-oscuro);
+    box-shadow: 0 6px 0 var(--color-tierra);
+    transition: all 0.1s ease;
+}
+ 
+.item-tienda:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 var(--color-tierra);
+}
+.item-tienda:active {
+    transform: translateY(3px);
+    box-shadow: 0 3px 0 var(--color-tierra);
+}
+ 
+.item-nombre {
+    font-family: 'Bangers', cursive;
+    font-size: 1.8em;
+    color: var(--color-bosque-oscuro);
+    text-shadow: 1px 1px 0 #fff;
+    margin-bottom: 5px;
+}
+ 
+.item-descripcion {
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 15px;
+    color: #4f4f4f;
+}
+ 
+/* Botón de compra en la tienda (Ajustado para el nuevo diseño) */
+.item-tienda .header-btn {
+    font-family: 'Quicksand', sans-serif; 
+    background-color: var(--color-mango); 
+    color: white;
+    font-size: 1.1em;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px #E65100; 
+    margin-top: 10px;
+    transition: all 0.1s;
+}
+ 
+.item-tienda .header-btn:hover {
+    background-color: #FFB74D;
+    transform: none;
+}
+ 
+.item-tienda .header-btn:active {
+    box-shadow: 0 1px #E65100;
+    transform: translateY(3px);
+}
+
+/* --- ESTILOS PARA LOGIN Y PERSONALIZACIÓN --- */
  
 .opciones-personalizacion, .opciones-tienda, .opcion-grupo {
     width: 100%;
@@ -294,54 +374,8 @@ h1 {
     outline: none;
 }
  
-/* Estilo específico para el input de color (más compacto) */
 .input-color-estilizado {
     height: 45px;
     width: 100px;
     padding: 2px;
-}
- 
-/* Estilos de los ítems de la Tienda */
-.item-tienda {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 10px;
-    border: 2px solid var(--color-lima-claro);
-    box-shadow: 0 4px 0 var(--color-bosque-oscuro);
-    transition: transform 0.2s;
-}
- 
-.item-tienda:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 0 var(--color-bosque-oscuro);
-}
- 
-.item-nombre {
-    font-size: 1.1em;
-    font-weight: 700;
-    color: var(--color-texto-claro);
-}
- 
-/* Botón de compra en la tienda */
-.item-tienda .header-btn {
-    background-color: var(--color-mango);
-    color: white;
-    font-family: 'Bangers', cursive;
-    padding: 8px 15px;
-    border-radius: 8px;
-    box-shadow: 0 3px #E65100;
-}
- 
-.item-tienda .header-btn:hover {
-    background-color: #FFB74D;
-    transform: none;
-}
- 
-.item-tienda .header-btn:active {
-    box-shadow: 0 1px #E65100;
-    transform: translateY(2px);
 }
